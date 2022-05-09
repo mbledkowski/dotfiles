@@ -29,5 +29,6 @@
     networkmanagerapplet
     gibo
     gh
+    rclone
   ];
 }
