@@ -1,0 +1,33 @@
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    calc
+    dig
+    htop
+    gotop
+    exa
+    git
+    wget
+    stow
+    xclip
+    wl-clipboard
+    neofetch
+    screenfetch
+    dash
+    fish
+    tmux
+    gcc
+    ntfs3g
+    pfetch
+    dmenu
+    rofi
+    zathura
+    unzip
+    alacritty
+    wev
+    waybar
+    networkmanagerapplet
+    gibo
+    gh
+  ];
+}
