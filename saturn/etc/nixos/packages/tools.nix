@@ -4,5 +4,7 @@
     wireshark
     burpsuite
     qbittorrent
+    minder
+    obsidian
   ];
 }

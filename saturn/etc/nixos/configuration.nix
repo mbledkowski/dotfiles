@@ -115,11 +115,14 @@
   users.users = {
     mble = {
       isNormalUser = true;
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ]; # Enable ‘sudo’ for the user.
     };
     emi = {
       isNormalUser = true;
-      extraGroups = [];
+      extraGroups = [ "networkmanager" ];
     };
   };
 

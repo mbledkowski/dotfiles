@@ -8,5 +8,6 @@
     gnomeExtensions.just-perfection
     gnomeExtensions.caffeine
     gnomeExtensions.night-theme-switcher
+    gnomeExtensions.pop-shell
   ];
 }

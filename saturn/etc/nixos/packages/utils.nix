@@ -30,5 +30,6 @@
     gibo
     gh
     rclone
+    pavucontrol
   ];
 }
