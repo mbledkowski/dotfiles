@@ -1,0 +1,7 @@
+[user]
+	email = pub@mble.dk
+	name = mbledkowski
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
