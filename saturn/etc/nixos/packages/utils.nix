@@ -13,18 +13,18 @@
     wl-clipboard
     neofetch
     screenfetch
+    pfetch
     dash
     fish
     tmux
     gcc
     ntfs3g
-    pfetch
-    dmenu
-    rofi
+    #dmenu
+    #rofi
     zathura
     unzip
     alacritty
-    wev
+    #wev
     waybar
     networkmanagerapplet
     gibo

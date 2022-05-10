@@ -71,7 +71,7 @@
   #  enableContribAndExtras = true;
   #};
   # Enable the Sway Window Manager
-  programs.sway.enable = true;
+  #programs.sway.enable = true;
 
   # Enable keyboard shortcut daemon
   programs.light.enable = true; # Needed for the /run/wrappers/bin/light SUID wrapper.
