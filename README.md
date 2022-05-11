@@ -9,6 +9,15 @@
 
 Read [spotifyd README.md](./global/home/mble/.config/spotifyd/README.md)
 
+## NixOS
+
+Before installation, run these lines:
+
+```sh
+sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+sudo nix-channel --update
+```
+
 ## Machines
  - solar - Huawei E5373 (modem)
  - mercury - Raspberry Pi Zero W v1.1, 256 GB SD Card
