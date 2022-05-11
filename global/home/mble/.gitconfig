@@ -1,6 +1,7 @@
 [user]
 	email = pub@mble.dk
 	name = mbledkowski
+	signingkey = 9A6234359E5827E2
 [init]
 	defaultBranch = main
 [core]
