@@ -9,7 +9,7 @@ sudo passwd mble
 
 # Install packages
 
-sudo apt install fish
+sudo apt install fish neovim
 
 # Change shell to fish for mble
 
