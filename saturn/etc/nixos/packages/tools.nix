@@ -6,5 +6,9 @@
     qbittorrent
     minder
     obsidian
+    tigervnc
+    mpv
+    youtube-dl
+    obs-studio
   ];
 }

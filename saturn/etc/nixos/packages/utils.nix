@@ -32,5 +32,6 @@
     rclone
     pavucontrol
     cron
+    file
   ];
 }
