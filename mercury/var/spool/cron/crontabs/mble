@@ -1,0 +1,3 @@
+@daily pihole updateGravity
+@daily pihole -up
+@daily apt update && apt full-upgrade

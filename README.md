@@ -19,15 +19,15 @@ sudo nix-channel --update
 ```
 
 ## Machines
- - solar - Huawei E5373 (modem)
+ - sun - TP-Link Archer MR400
  - mercury - Raspberry Pi Zero W v1.1, 256 GB SD Card
  - venus - Samsung A40, 64GB internal memory
  - earth - Kindle Paperwhite 5, 8GB internal memory, no ads
  - mars - iPad Air 2019, 64GB internal memory
- - jupiter - Thinkpad X260, 16GB DDR4
- - saturn - Thinkpad T460, 16GB DDR3
+ - jupiter - Thinkpad X260, i5-6300U, 16GB DDR4
+ - saturn - Thinkpad T460, i5-6300U, 16GB DDR3
  - uranus - Matebook D14 Ryzen 5 2500U, 8GB DDR4 
- - neptune - i3 6100U, 8GB DDR4
+ - neptune - i3-6100U, 8GB DDR4
 
 ## License
 [WTFPL](https://spdx.org/licenses/WTFPL)
