@@ -34,7 +34,7 @@ sudo updatedb
 #### Installation
 
 ```sh
-yay -S paru
+yay -S paru-bin
 ```
 
 #### Packages
@@ -48,4 +48,12 @@ paru -Syyu --noconfirm gibo licensor-git nvm rate-mirrors-bin obs-hevc-vaapi-git
 ```sh
 systemctl --user start spotifyd.service
 systemctl --user enable spotifyd.service
+```
+
+### Pip
+
+```sh
+pip install --user wheel browser_cookie3 pip-review neovim
+
+pip-review --local --auto
 ```
