@@ -1,4 +1,4 @@
-# mercury's shell scripts
+# mercury's setup instructions
 
 ## Creating bootable drive
 
