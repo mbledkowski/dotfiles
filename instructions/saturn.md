@@ -2,7 +2,7 @@
 
 ## Creating bootable drive
 
-Go to Manjaro.org > Try Manjaro > Editions > Community > [Sway](https://manjaro.org/download/#sway)
+Go to Manjaro.org > Try Manjaro > Editions > Community > [Sway](https://manjaro.org/download/#sway).
 Click "Get Sway", and download Manjaro Unstable zip and z01.
 Merge archives (`zip -F manjaro.zip --out unsplit.zip`) and unzip them.
 Flash iso on to USB drive.
