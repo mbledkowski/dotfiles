@@ -51,8 +51,7 @@ paru -Syyu --noconfirm gibo licensor-git nvm rate-mirrors-bin obs-hevc-vaapi-git
 #### Enable services
 
 ```sh
-systemctl --user start spotifyd.service
-systemctl --user enable spotifyd.service
+systemctl --user --now enable spotifyd.service
 ```
 
 ### Pip
