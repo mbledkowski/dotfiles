@@ -45,7 +45,7 @@ makepkg -si
 #### Packages
 
 ```sh
-paru -Syyu --noconfirm gibo licensor-git nvm rate-mirrors-bin obs-hevc-vaapi-git ttf-liberation googler ddgr code-marketplace adwaita-dark megasync-bin nautilus-megasync clipman neovide polymc-bin systemd-cron sublime-text-4 peazip-gtk2-bin atool spotifyd spot-client ttf-ms-fonts nerd-fonts-complete
+paru -Syyu --noconfirm gibo licensor-git nvm rate-mirrors-bin obs-hevc-vaapi-git ttf-liberation googler ddgr code-marketplace adwaita-dark clipman neovide polymc-bin systemd-cron sublime-text-4 peazip-gtk2-bin atool spotifyd spot-client ttf-ms-fonts nerd-fonts-complete
 ```
 
 #### Enable services
