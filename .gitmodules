@@ -1,0 +1,3 @@
+[submodule "global/home/mble/.config/nvim"]
+	path = global/home/mble/.config/nvim
+	url = git@github.com:mbledkowski/nvim.git
