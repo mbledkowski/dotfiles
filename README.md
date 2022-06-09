@@ -20,6 +20,7 @@ sudo nix-channel --update
 
 ## Machines
  - sun - TP-Link Archer MR400
+ - puffmachine - Smok Nord 50W 
  - mercury - Raspberry Pi Zero W v1.1, 256 GB SD Card
  - phobos (moon of mars) - Raspberry Pi 3 B+ (zajebaned from Hackerspace Pomorze), 128 GB SD Card
  - deimos (moon of mars) - Odroid C2 Rev0.2, 128 SD Card
