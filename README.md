@@ -32,5 +32,10 @@ sudo nix-channel --update
  - uranus - Matebook D14 Ryzen 5 2500U, 8GB DDR4 
  - neptune - i3-6100U, 8GB DDR4
 
+### VPS'es
+ - halley - 1 VCPU ARM, 6GB RAM
+ - halley2 - 2 VCPU ARM, 12GB RAM
+ - halley3 - 1 VCPU ARM, 6GB RAM
+
 ## License
 [WTFPL](https://spdx.org/licenses/WTFPL)
