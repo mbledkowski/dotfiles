@@ -9,4 +9,5 @@
 
 ## Running Yacy
 
- 1. `docker run --name yacy_search_server -p 8090:8090 -p 8443:8443 -e YACY_NETWORK_UNIT_AGENT=h4xx0r -v /home/ubuntu/s:/opt/yacy_search_server/DATA --restart unless-stopped --log-opt max-size=200m --log-opt max-file=2 yacy/yacy_search_server:aarch64-latest`
+ 1. Run `tmux` or `screen -R yacy`
+ 2. `docker run --name yacy_search_server -p 8090:8090 -p 8443:8443 -e YACY_NETWORK_UNIT_AGENT=h4xx0r -v /home/ubuntu/s:/opt/yacy_search_server/DATA --restart unless-stopped --log-opt max-size=200m --log-opt max-file=2 yacy/yacy_search_server:aarch64-latest`
