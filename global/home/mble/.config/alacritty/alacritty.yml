@@ -15,6 +15,6 @@ font:
     family: "JetBrainsMono"
     style: Bold Italic
 
-  size: 9
+  size: 7
 shell:
   program: /usr/bin/tmux
