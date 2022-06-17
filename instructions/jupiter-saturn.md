@@ -24,7 +24,7 @@ Install Arch Linux on drive using `archinstall`.
 ### Pacman
 
 ```sh
-sudo pacman -Syyu --noconfirm base-devel yarn fisher noto-fonts gimp cups whois mpv celluloid barrier gimp firefox chromium epiphany tor proxychains-ng neofetch screenfetch exa tree curl wget transmission-cli ueberzug highlight ffmpegthumbnailer elinks ranger plocate coreutils sharutils cpio lzip lzop man-pages man-db dconf dconf-editor dash tmux python python-pip nodejs deno hugo wireshark-qt wireshark-cli termshark qbittorrent youtube-dl wl-clipboard marker gedit bluez bluez-utils gnome-firmware foot alacritty redshift spotifyd zathura ntfs-3g powerline powerline-fonts ttf-jetbrains-mono rofi blueman copyq flameshot pavucontrol brightnessctl i3lock
+sudo pacman -Syyu --noconfirm base-devel yarn fisher noto-fonts gimp cups whois mpv celluloid barrier gimp firefox chromium epiphany tor proxychains-ng neofetch screenfetch exa tree curl wget transmission-cli ueberzug highlight ffmpegthumbnailer elinks ranger plocate coreutils sharutils cpio lzip lzop man-pages man-db dconf dconf-editor dash tmux python python-pip nodejs deno hugo wireshark-qt wireshark-cli termshark qbittorrent youtube-dl wl-clipboard marker gedit bluez bluez-utils gnome-firmware foot alacritty redshift spotifyd zathura ntfs-3g powerline powerline-fonts ttf-jetbrains-mono rofi blueman copyq flameshot pavucontrol brightnessctl i3lock xclip
 
 sudo systemctl enable bluetooth.service
 sudo systemctl enable cups.service
