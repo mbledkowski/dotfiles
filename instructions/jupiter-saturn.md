@@ -15,8 +15,9 @@ Install Arch Linux on drive using `archinstall`.
   4. Exit from root session using `exit`
   5. Login to GitHub using `gh auth login`
   6. Clone dotfiles into ~/.dotfiles `gh repo clone dotfiles ~/.dotfiles`
-  7. `cd` into `~/.dotfiles/saturn` directory and run `sudo stow . -t /`
-  8. Change default shell for mble to fish using `chsh mble -s $(which fish)`
+  7. `cd` into ~/.dotfiles and run `git submodule update --init --recursive`
+  8. `cd` into `~/.dotfiles/jupiter` or `~/.dotfiles/saturn` directory and run `sudo stow . -t /`
+  9. Change default shell for mble to fish using `chsh mble -s $(which fish)`
 
 ## Install packages
 
