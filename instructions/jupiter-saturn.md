@@ -64,3 +64,6 @@ pip install --user wheel browser_cookie3 pip-review neovim
 
 pip-review --local --auto
 ```
+
+### Change default webbrowser
+xdg-settings set default-web-browser firefox.desktop
