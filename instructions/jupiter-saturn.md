@@ -1,4 +1,4 @@
-# saturn's setup instructions
+# jupiter's / saturn's setup instructions
 
 ## Creating bootable drive
 
@@ -14,16 +14,17 @@ Install Arch Linux on drive using `archinstall`.
   3. Type `visudo` and uncomment `%wheel ALL=(ALL:ALL) ALL`
   4. Exit from root session using `exit`
   5. Login to GitHub using `gh auth login`
-  6. Clone dotfiles into ~/.dotfiles `gh repo clone dotfiles ~/.dotfiles`
-  7. `cd` into `~/.dotfiles/saturn` directory and run `sudo stow . -t /`
-  8. Change default shell for mble to fish using `chsh mble -s $(which fish)`
+  6. Clone dotfiles into `~/.dotfiles` `gh repo clone dotfiles ~/.dotfiles`
+  7. `cd` into `~/.dotfiles` and run `git submodule update --init --recursive`
+  8. `cd` into `~/.dotfiles/jupiter` or `~/.dotfiles/saturn` directory and run `sudo stow . -t /`
+  9. Change default shell for mble to fish using `chsh mble -s $(which fish)`
 
 ## Install packages
 
 ### Pacman
 
 ```sh
-sudo pacman -Syyu --noconfirm base-devel yarn fisher noto-fonts gimp cups whois mpv celluloid barrier gimp firefox chromium epiphany tor proxychains-ng neofetch screenfetch exa tree curl wget transmission-cli ueberzug highlight ffmpegthumbnailer elinks ranger plocate coreutils sharutils cpio lzip lzop man-pages man-db dconf dconf-editor dash tmux python python-pip nodejs deno hugo wireshark-qt wireshark-cli termshark qbittorrent youtube-dl wl-clipboard marker gedit bluez bluez-utils gnome-firmware foot alacritty redshift spotifyd zathura ntfs-3g powerline powerline-fonts ttf-jetbrains-mono i3
+sudo pacman -Syyu --noconfirm base-devel yarn fisher noto-fonts gimp cups whois mpv celluloid barrier gimp firefox chromium epiphany tor proxychains-ng neofetch screenfetch exa tree curl wget transmission-cli ueberzug highlight ffmpegthumbnailer elinks ranger plocate coreutils sharutils cpio lzip lzop man-pages man-db dconf dconf-editor dash tmux python python-pip nodejs deno hugo wireshark-qt wireshark-cli termshark qbittorrent youtube-dl wl-clipboard marker gedit bluez bluez-utils gnome-firmware foot alacritty redshift spotifyd zathura ntfs-3g powerline powerline-fonts ttf-jetbrains-mono rofi blueman copyq flameshot pavucontrol brightnessctl i3lock xclip usbutils
 
 sudo systemctl enable bluetooth.service
 sudo systemctl enable cups.service
