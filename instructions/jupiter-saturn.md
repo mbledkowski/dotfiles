@@ -66,4 +66,6 @@ pip-review --local --auto
 ```
 
 ### Change default webbrowser
+```sh
 xdg-settings set default-web-browser firefox.desktop
+```
