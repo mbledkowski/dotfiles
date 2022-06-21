@@ -32,6 +32,7 @@ exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natu
 
 # Set keyboard layout and repeat delay/rate
 exec setxkbmap -layout pl -variant colemak
+exec setxkbmap -option 'caps:escape'
 exec --no-startup-id xset r rate 180 50
 
 # Start XDG autostart .desktop files using dex. See also
