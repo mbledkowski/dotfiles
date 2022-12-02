@@ -12,6 +12,9 @@ function fish_prompt
   #  echo -n (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯ '
   #  set_color normal
 
+  if set -q VIRTUAL_ENV
+    echo -n -s (set_color brmagenta) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+  end
   echo -n (set_color normal)'λ ' #(set_color brmagenta)'λ '
   set_color normal
 end

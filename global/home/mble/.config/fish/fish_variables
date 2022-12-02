@@ -1,10 +1,14 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export BUN_INSTALL:/home/mble/\x2ebun
+SETUVAR EDITOR:/home/mble/\x2elocal/bin/lvim
+SETUVAR VISUAL:/home/mble/\x2elocal/bin/lvim
 SETUVAR __fish_initialized:3400
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/mble/\x2econfig/fish/functions/fisher\x2efish\x1e/home/mble/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/home/mble/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/home/mble/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/home/mble/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/home/mble/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/home/mble/\x2econfig/fish/functions/nvm\x2efish\x1e/home/mble/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/home/mble/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1etom\x2ddoerr/codex\x2efish
+SETUVAR _fisher_tom_2D_doerr_2F_codex_2E_fish_files:\x7e/\x2econfig/fish/functions/create_completion\x2efish\x1e\x7e/\x2econfig/fish/functions/create_completion\x2epy\x1e\x7e/\x2econfig/fish/conf\x2ed/create_completion\x2efish
+SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
