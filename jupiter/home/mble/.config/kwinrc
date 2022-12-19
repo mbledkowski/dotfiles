@@ -9,9 +9,6 @@ LatencyPolicy=Low
 Id_1=4d1804fe-d342-4005-a198-484005936ecf
 Id_10=26f2f7d0-a9c6-4522-8b80-daef754d071e
 Id_11=4bc5aa81-efcb-4d6a-9693-8bb5a0b2285c
-Id_12=82936ce6-5e5f-4ff7-8ea2-646881563dba
-Id_13=d8f01ab6-45c6-473e-b1e9-2255189cc080
-Id_14=ccb39547-3472-4794-819e-34b3db386144
 Id_2=a52a29ef-f725-4c75-bc8f-9ca755ca78bf
 Id_3=2d15aa2d-3b0d-4c82-89a1-fec15be94712
 Id_4=38f75dc2-6ef7-455f-b1fe-3924085e165a
@@ -23,9 +20,6 @@ Id_9=bd4c0ac4-6bde-41f8-80e5-357d2084f413
 Name_1=0 Web
 Name_10=9 Notes
 Name_11=10 Music
-Name_12=11
-Name_13=12
-Name_14=13 Streaming
 Name_2=1 Terminal
 Name_3=2 Code
 Name_4=3
@@ -34,7 +28,7 @@ Name_6=5
 Name_7=6
 Name_8=7
 Name_9=8
-Number=14
+Number=11
 Rows=1
 
 [Effect-desktopgrid]
@@ -46,8 +40,8 @@ BorderActivateAll=9
 
 [NightColor]
 Active=true
-LatitudeAuto=52.2484
-LongitudeAuto=21.0026
+LatitudeAuto=53.1288
+LongitudeAuto=17.9952
 
 [Plugins]
 bismuthEnabled=true
@@ -81,3 +75,5 @@ Scale=1
 
 [org.kde.kdecoration2]
 ButtonsOnLeft=M
+library=org.kde.breeze
+theme=Breeze
