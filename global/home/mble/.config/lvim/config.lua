@@ -44,10 +44,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   },
 -- }
 
--- Change theme settings
--- lvim.builtin.theme.options.dim_inactive = true
--- lvim.builtin.theme.options.style = "storm"
-
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -86,6 +82,62 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
+
+-- DAP settings
+local home = os.getenv('HOME')
+local dap = require('dap')
+dap.adapters.node2 = {
+  type = 'executable',
+  command = 'node',
+  args = { home .. '/.local/share/nvim/lspinstall/node_modules/vscode-node-debug2/out/src/nodeDebug.js' },
+}
+
+dap.configurations.javascript = {
+  {
+    name = 'Launch',
+    type = 'node2',
+    request = 'launch',
+    program = '${file}',
+    cwd = vim.loop.cwd(),
+    sourceMaps = true,
+    protocol = 'inspector',
+    console = 'integratedTerminal',
+  },
+  {
+    -- For this to work you need to make sure the node process
+    -- is started with the `--inspect` flag.
+    name = 'Attach to process',
+    type = 'node2',
+    request = 'attach',
+    processId = require('dap.utils').pick_process,
+  },
+}
+
+dap.configurations.typescript = {
+  {
+    name = "ts-node (Node2 with ts-node)",
+    type = "node2",
+    request = "launch",
+    cwd = vim.loop.cwd(),
+    runtimeArgs = { "-r", "ts-node/register" },
+    runtimeExecutable = "node",
+    args = { "--inspect", "${file}" },
+    sourceMaps = true,
+    skipFiles = { "<node_internals>/**", "node_modules/**" },
+  },
+  {
+    name = "Jest (Node2 with ts-node)",
+    type = "node2",
+    request = "launch",
+    cwd = vim.loop.cwd(),
+    runtimeArgs = { "--inspect-brk", "${workspaceFolder}/node_modules/.bin/jest" },
+    runtimeExecutable = "node",
+    args = { "${file}", "--runInBand", "--coverage", "false" },
+    sourceMaps = true,
+    port = 9229,
+    skipFiles = { "<node_internals>/**", "node_modules/**" },
+  },
+}
 
 -- generic LSP settings
 
@@ -167,12 +219,19 @@ linters.setup {
 lvim.plugins = {
   { "github/copilot.vim" },
   { "Igorjan94/codeforces.vim" },
+  { 'nyoom-engineering/oxocarbon.nvim' }
   --     {"folke/tokyonight.nvim"},
   --     {
   --       "folke/trouble.nvim",
   --       cmd = "TroubleToggle",
   --     },
 }
+
+-- Change theme settings
+-- lvim.builtin.theme.options.dim_inactive = true
+-- lvim.builtin.theme.options.style = "storm"
+vim.opt.background = "dark" -- set this to dark or light
+vim.cmd.colorscheme "oxocarbon"
 
 -- GitHub Copilot settings
 vim.g.copilot_no_tab_map = true
