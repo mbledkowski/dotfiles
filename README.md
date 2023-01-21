@@ -18,6 +18,20 @@ sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.ta
 sudo nix-channel --update
 ```
 
+## Windows 10/11
+### Installation of Win11 on unsupported hardware
+ - https://pureinfotech.com/install-windows-11-unsupported-pc/
+### Colemak
+ - Download: https://app.box.com/s/1cn9rfy6ywy0rbzqoj1ws5vjpf8lwasx
+ - Run "setup.exe"
+### Removal of unnecessary features
+ - Run PowerShell with admin privilages
+ - Enable PowerShell execution `Set-ExecutionPolicy Unrestricted -Force`
+ - Download: https://github.com/Sycnex/Windows10Debloater
+ - Run "Windows10DebloaterGUI.ps1"
+ - Follow this tutorial: https://beebom.com/how-debloat-windows-11-improve-performance/
+ - You might also use this resource: https://pureinfotech.com/debloat-windows-11/
+
 ## Machines
  - sun - TP-Link Archer MR400
  - mercury - Raspberry Pi Zero W v1.1, 256 GB SD Card
@@ -29,7 +43,7 @@ sudo nix-channel --update
  - jupiter - Thinkpad X260, i5-6300U, 16GB DDR4
  - saturn - Thinkpad T460, i5-6300U, 16GB DDR3
  - uranus - Matebook D14 Ryzen 5 2500U, 8GB DDR4 
- - neptune - i3-6100U, 8GB DDR4
+ - neptune - i3-6100U, 8GB DDR4, RTX 2070
 
 ### VPS'es
  - halley - 1 VCPU ARM, 6GB RAM
