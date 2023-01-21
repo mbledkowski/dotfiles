@@ -31,6 +31,20 @@ sudo nix-channel --update
  - Run "Windows10DebloaterGUI.ps1"
  - Follow this tutorial: https://beebom.com/how-debloat-windows-11-improve-performance/
  - You might also use this resource: https://pureinfotech.com/debloat-windows-11/
+### Config
+#### Keyboard
+ - Keyboard Properties
+ - Repeat delay: Short
+ - Repeat rate: Fast
+#### Mouse
+ - Mouse
+ - Additional mouse settings
+ - Pointer Options
+ - Pointer speed: 6/11 (one below default)
+ - Uncheck "Enhance pointer precision" (Mouse acceleration)
+### Software
+ - `winget install 9NZVDKPMR9RD` (Firefox)
+ - `winget install XP89DCGQ3K6VLD` (PowerToys)
 
 ## Machines
  - sun - TP-Link Archer MR400
