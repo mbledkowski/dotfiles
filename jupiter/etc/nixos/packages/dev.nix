@@ -1,8 +1,1 @@
-{ pkgs, ... }:
-{
-  programs.neovim.defaultEditor = true;
-  environment.systemPackages = with pkgs; [
-    cargo #rust
-    openai
-  ];
-}
+../../../../global/etc/nixos/packages/dev.nix

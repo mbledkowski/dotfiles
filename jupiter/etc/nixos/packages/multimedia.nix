@@ -1,10 +1,1 @@
-{ pkgs, ... }:
-{
-  environment.systemPackages = with pkgs; [
-    spotifyd
-    #    spotify-qt
-    spotify
-    spotify-tui
-    reaper
-  ];
-}
+../../../../global/etc/nixos/packages/multimedia.nix
