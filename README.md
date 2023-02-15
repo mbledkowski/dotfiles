@@ -57,12 +57,12 @@ sudo nix-channel --update
  - jupiter - Thinkpad X260, i5-6300U, 16GB DDR4
  - saturn - Thinkpad T460, i5-6300U, 16GB DDR3
  - uranus - Matebook D14 Ryzen 5 2500U, 8GB DDR4 
- - neptune - i3-6100U, 8GB DDR4, RTX 2070
+ - neptune - Ryzen 9 5900X, 32GB DDR4, RTX 2070 8GB
 
 ### VPS'es
- - halley - 1 VCPU ARM, 6GB RAM
- - halley2 - 2 VCPU ARM, 12GB RAM
- - halley3 - 1 VCPU ARM, 6GB RAM
+ - halley - 1 VCPU ARM, 6GB RAM, Oracle Cloud
+ - halley2 - 2 VCPU ARM, 12GB RAM, Oracle Cloud
+ - halley3 - 1 VCPU ARM, 6GB RAM, Oracle Cloud
 
 ## License
 [WTFPL](https://spdx.org/licenses/WTFPL)
