@@ -8,7 +8,7 @@
     [
       ./packages
       <nixos-hardware/lenovo/thinkpad/x260>
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Boot
@@ -57,7 +57,6 @@
   # has not been updated since 2015, thus "modesetting" is recommended)
 
   services.xserver.videoDrivers = [ "modesetting" ];
-  services.xserver.useGlamor = true;
 
   # OpenGL support for 32 bit programs such as in Wine
   hardware.opengl.driSupport32Bit = true;
@@ -71,7 +70,9 @@
   #  enableContribAndExtras = true;
   #};
   # Enable the Sway Window Manager
-  #programs.sway.enable = true;
+  programs.sway.enable = true;
+  # Enable the Pantheon Desktop Environment.
+  #services.xserver.desktopManager.pantheon.enable = true;
 
   # Enable keyboard shortcut daemon
   programs.light.enable = true; # Needed for the /run/wrappers/bin/light SUID wrapper.
@@ -92,12 +93,30 @@
   services.xserver.xkbVariant = "colemak,";
   services.xserver.xkbOptions = "caps:backspace";
 
+  # Printering
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  services.avahi.enable = true;
+  # for a WiFi printer
+  services.avahi.openFirewall = true;
+  # for an USB printer
+  services.ipp-usb.enable = true;
+
+  services.printing.drivers = [ pkgs.hplipWithPlugin ];
+
+  # Scannering
+  hardware.sane.enable = true;
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  services.pipewire.enable = true;
+
+  # Enable bluetooth.
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput = {
@@ -118,7 +137,29 @@
       extraGroups = [
         "wheel"
         "networkmanager"
-      ]; # Enable ‘sudo’ for the user.
+        "scanner"
+        "lp"
+        "libvirtd"
+        "docker"
+        "plugdev"
+      ];
+    };
+  };
+
+  # Groups
+  users.groups = {
+    mlocate = { };
+  };
+
+  # mlocate
+  security.wrappers = {
+    locate = {
+      group = "mlocate";
+      owner = "root";
+      permissions = "u+rx,g+x,o+x";
+      setgid = true;
+      setuid = false;
+      source = "${pkgs.mlocate}/bin/locate";
     };
   };
 
@@ -142,10 +183,64 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+  networking.firewall.allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  # Virtualisation
+  virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+  programs.dconf.enable = true;
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
+
+  # U2F configuration (YubiKey)
+  # https://nixos.wiki/wiki/Yubikey
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
+  security.pam.yubico = {
+    enable = true;
+    debug = false;
+    mode = "challenge-response";
+  };
+  security.pam.yubico.control = "required";
+  services.pcscd.enable = true;
+
+  # Systemd Timers
+  systemd.timers."pluget-todo-update" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "1h";
+      OnUnitActiveSec = "1h";
+      Unit = "pluget-todo-update.service";
+    };
+  };
+
+  systemd.services."pluget-todo-update" = {
+    script = ''
+      cd /home/mble/Code/repos/pluget/todo/
+      git pull
+      git add .
+      git commit --no-gpg-sign -m "Regular update"
+      git push
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "mble";
+    };
+  };
 
   # System
   system = {

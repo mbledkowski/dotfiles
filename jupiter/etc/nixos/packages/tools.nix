@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     wireshark
@@ -6,5 +6,13 @@
     qbittorrent
     minder
     obsidian
+    gaphor
+    khronos
+    textpieces
+    icon-library
+    onlyoffice-bin
+    audacity
+    obs-studio
+    imagej
   ];
 }

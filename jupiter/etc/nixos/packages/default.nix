@@ -13,6 +13,8 @@
     ./fonts.nix
     ./haskell.nix
     ./multimedia.nix
+    ./dev.nix
+    ./win.nix
   ];
   
   # Allow non-free packages

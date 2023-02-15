@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
@@ -9,5 +9,9 @@
     gnomeExtensions.caffeine
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.pop-shell
+    gnomeExtensions.gsconnect
+    # gnomeExtensions.power-profile-switcher
+    gnomeExtensions.material-shell
+    textpieces
   ];
 }

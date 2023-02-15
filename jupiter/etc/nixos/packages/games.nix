@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
     environment.systemPackages = with pkgs; [
-      polymc # Minecraft, multimc fork
+      prismlauncher # Minecraft, multimc fork
+      jdk17
       steam  
   ];
 }

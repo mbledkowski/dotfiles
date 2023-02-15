@@ -36,7 +36,7 @@ exec pkill code
 set $term alacritty
 
 # Menu
-set $menu wofi -show drun
+set $menu wofi --show drun
 
 # Start bluetooth manager
 exec blueman-applet
@@ -55,7 +55,7 @@ input type:touchpad {
 input * {
     xkb_layout "pl,pl"
     xkb_variant "colemak,"
-    xkb_options "grp:win_space_toggle,caps:swapescape"
+    xkb_options "grp:win_space_toggle,caps:escape"
     repeat_delay 176
     repeat_rate 50
 }
@@ -77,7 +77,7 @@ exec swayidle -w \
 exec --no-startup-id nm-applet
 
 # Set wallpaper
-output "*" bg ~/Pictures/Wallpapers/Horatio_Henry_Couldery_-_Cats_by_a_fishbowl.jpg fill
+output "*" bg ~/.dotfiles/wallpapers/Horatio_Henry_Couldery_-_Cats_by_a_fishbowl.jpg fill
 
 # Run bar
 exec waybar
@@ -103,8 +103,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 8%-
 bindsym XF86Search exec $menu
 
 # start a terminal
-set $TERMINAL "/usr/bin/alacritty"
-bindsym $mod+Return exec $TERMINAL 
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+q kill
@@ -120,7 +119,7 @@ bindsym $mod+period exec "wofi -modi emoji -show emoji -kb-custom-1 Ctrl+C"
 
 bindsym $mod+p exec pavucontrol
 
-bindsym $mod+Control+l exec i3lock-fancy-rapid 2 8
+bindsym $mod+Control+l exec swaylock 
 
 bindsym $mod+$alt+Right workspace next
 bindsym $mod+$alt+Left workspace prev

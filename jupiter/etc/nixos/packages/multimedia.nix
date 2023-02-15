@@ -1,8 +1,10 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     spotifyd
-    spotify-qt
+    #    spotify-qt
+    spotify
     spotify-tui
+    reaper
   ];
 }

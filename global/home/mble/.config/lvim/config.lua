@@ -236,7 +236,7 @@ vim.cmd.colorscheme "oxocarbon"
 -- GitHub Copilot settings
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
-vim.g.copilot_node_command = "/home/mble/.local/share/nvm/v16.15.1/bin/node"
+-- vim.g.copilot_node_command = "/home/mble/.local/share/nvm/v16.15.1/bin/node"
 vim.api.nvim_set_keymap("i", "<A-t>", 'copilot#Accept("")', { expr = true, silent = true })
 
 -- Neovide settings
