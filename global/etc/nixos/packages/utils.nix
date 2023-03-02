@@ -88,5 +88,8 @@
     cmatrix
     etcher
     ventoy-bin-full
+    poppler_utils
+    fd
+    ripgrep
   ];
 }

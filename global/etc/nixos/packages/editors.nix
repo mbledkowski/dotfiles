@@ -8,5 +8,6 @@
     jetbrains.webstorm
     jetbrains.idea-ultimate
     jetbrains.pycharm-professional
+    jetbrains.mps
   ];
 }

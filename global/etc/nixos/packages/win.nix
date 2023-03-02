@@ -10,7 +10,7 @@
     # native wayland support (unstable)
     wineWowPackages.waylandFull
 
-    bottles
+    # bottles
     lutris
   ];
 }
