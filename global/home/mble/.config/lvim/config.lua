@@ -10,8 +10,8 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+lvim.format_on_save.enabled = true
+vim.opt.shell = "/bin/dash"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -183,7 +183,7 @@ dap.configurations.typescript = {
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 vim.lsp.format = { timeout = 15000 }
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
+formatters.setup = {
   { command = "black", filetypes = { "python" } },
   --   { command = "isort", filetypes = { "python" } },
   {
@@ -199,7 +199,7 @@ formatters.setup {
 
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
+linters.setup = {
   { command = "flake8", filetypes = { "python" } },
   --   {
   --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
@@ -217,9 +217,16 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+  "folke/todo-comments.nvim",
+  event = "BufRead",
+  config = function()
+    require("todo-comments").setup()
+  end,
+  },
   { "github/copilot.vim" },
   { "Igorjan94/codeforces.vim" },
-  { 'nyoom-engineering/oxocarbon.nvim' }
+  { 'nyoom-engineering/oxocarbon.nvim' },
   --     {"folke/tokyonight.nvim"},
   --     {
   --       "folke/trouble.nvim",
@@ -227,11 +234,12 @@ lvim.plugins = {
   --     },
 }
 
+
 -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
 -- lvim.builtin.theme.options.style = "storm"
 vim.opt.background = "dark" -- set this to dark or light
-vim.cmd.colorscheme "oxocarbon"
+lvim.colorscheme = "oxocarbon"
 
 -- GitHub Copilot settings
 vim.g.copilot_no_tab_map = true
