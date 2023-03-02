@@ -233,13 +233,14 @@
       cd /home/mble/Code/repos/pluget/todo/
       git pull
       git add .
-      git commit --no-gpg-sign -m "Regular update"
+      git commit --no-gpg-sign -m 'Regular update'
       git push
     '';
     serviceConfig = {
       Type = "oneshot";
       User = "mble";
     };
+    path = with pkgs; [ git ];
   };
 
   # System
