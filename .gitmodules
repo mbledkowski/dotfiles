@@ -1,3 +1,6 @@
 [submodule "global/home/mble/.config/nvim"]
 	path = global/home/mble/.config/nvim
 	url = git@github.com:mbledkowski/nvim.git
+[submodule "global/home/mble/.config/alacritty/themes"]
+	path = global/home/mble/.config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
