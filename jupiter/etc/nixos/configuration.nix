@@ -218,31 +218,16 @@
   security.pam.yubico.control = "required";
   services.pcscd.enable = true;
 
-  # Systemd Timers
-  systemd.timers."pluget-todo-update" = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnBootSec = "1h";
-      OnUnitActiveSec = "1h";
-      Unit = "pluget-todo-update.service";
-    };
+  # Enable cron service
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "@hourly mble cd /home/mble/Code/repos/pluget/todo/ && git pull && git add . && git commit --no-gpg-sign -m 'Regular update' && git push"
+      "@daily mble pnpm add -g pnpm"
+      "@daily root nix-channel --update && nixos-rebuild switch --upgrade && nix-collect-garbage -d"
+    ];
   };
-
-  systemd.services."pluget-todo-update" = {
-    script = ''
-      cd /home/mble/Code/repos/pluget/todo/
-      git pull
-      git add .
-      git commit --no-gpg-sign -m 'Regular update'
-      git push
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      User = "mble";
-    };
-    path = with pkgs; [ git ];
-  };
-
+  
   # System
   system = {
     # This value determines the NixOS release from which the default

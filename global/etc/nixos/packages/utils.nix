@@ -91,5 +91,6 @@
     poppler_utils
     fd
     ripgrep
+    radicle-cli
   ];
 }
