@@ -15,8 +15,8 @@ font:
     family: "JetBrainsMono Nerd Font"
     style: Bold Italic
 
-  size: 7
+  size: 8.5
 shell:
-  program: /usr/bin/env tmux
+  program: /run/current-system/sw/bin/tmux
 import:
   - ~/.config/alacritty/themes/themes/hyper.yaml
