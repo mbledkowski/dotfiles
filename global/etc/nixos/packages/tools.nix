@@ -14,5 +14,6 @@
     audacity
     obs-studio
     imagej
+    anytype
   ];
 }
