@@ -18,6 +18,11 @@ sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.ta
 sudo nix-channel --update
 ```
 
+After stow-ing files:
+```sh
+sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && sudo nix-collect-garbage -d
+```
+
 ## Windows 10/11
 ### Installation of Win11 on unsupported hardware
  - https://pureinfotech.com/install-windows-11-unsupported-pc/
