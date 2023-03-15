@@ -52,10 +52,18 @@
 
   # Graphics
 
-  # Intel Graphics drivers ("intel" does not support modern features and
-  # has not been updated since 2015, thus "modesetting" is recommended)
+  # Nvidia drivers
+  # NVIDIA drivers are unfree.
+  nixpkgs.config.allowUnfree = true;
 
-  services.xserver.videoDrivers = [ "modesetting" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
+
+  # Optionally, you may need to select the appropriate driver version for your specific GPU.
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+  # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
+  hardware.nvidia.modesetting.enable = true;
 
   # OpenGL support for 32 bit programs such as in Wine
   hardware.opengl.driSupport32Bit = true;
@@ -227,19 +235,6 @@
       "@daily mble cd /home/mble/.dotfiles/ && git pull && git add . && git commit --no-gpg-sign -m 'Regular update' && git push"
     ];
   };
-
-  # Nvidia drivers
-  # NVIDIA drivers are unfree.
-  nixpkgs.config.allowUnfree = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
-
-  # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-  # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
-  hardware.nvidia.modesetting.enable = true;
 
   # System
   system = {
