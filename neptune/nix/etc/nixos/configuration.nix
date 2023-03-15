@@ -14,8 +14,17 @@
   boot = {
     # Use the systemd-boot EFI boot loader.
     loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+     # systemd-boot.enable = true;
+        efi = {
+          canTouchEfiVariables = true;
+          efiSysMountPoint = "/boot/efi";
+        };
+        grub = {
+          efiSupport = true;
+          #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+          device = "nodev";
+          enableCryptodisk = true;
+        };    
     };
 
     # Kernel
