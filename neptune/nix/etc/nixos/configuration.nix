@@ -7,7 +7,6 @@
   imports =
     [
       ./packages
-      <nixos-hardware/lenovo/thinkpad/x260>
       /etc/nixos/hardware-configuration.nix
     ];
 
@@ -23,7 +22,7 @@
     kernelPackages = pkgs.linuxPackages_zen;
   };
 
-  networking.hostName = "jupiter"; # Define your hostname.
+  networking.hostName = "neptune"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
 
@@ -218,28 +217,15 @@
   security.pam.yubico.control = "required";
   services.pcscd.enable = true;
 
-  # Systemd Timers
-  systemd.timers."pluget-todo-update" = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnBootSec = "1h";
-      OnUnitActiveSec = "1h";
-      Unit = "pluget-todo-update.service";
-    };
-  };
-
-  systemd.services."pluget-todo-update" = {
-    script = ''
-      cd /home/mble/Code/repos/pluget/todo/
-      git pull
-      git add .
-      git commit --no-gpg-sign -m "Regular update"
-      git push
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      User = "mble";
-    };
+  # Enable cron service
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "@hourly mble cd /home/mble/Code/repos/pluget/todo/ && git pull && git add . && git commit --no-gpg-sign -m 'Regular update' && git push"
+      "@daily mble pnpm add -g pnpm"
+      "@daily root nix-channel --update && nixos-rebuild switch --upgrade && nix-collect-garbage -d"
+      "@daily mble cd /home/mble/.dotfiles/ && git pull && git add . && git commit --no-gpg-sign -m 'Regular update' && git push"
+    ];
   };
 
   # Nvidia drivers
@@ -251,6 +237,9 @@
 
   # Optionally, you may need to select the appropriate driver version for your specific GPU.
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+  # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
+  hardware.nvidia.modesetting.enable = true;
 
   # System
   system = {
