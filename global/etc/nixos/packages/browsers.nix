@@ -8,6 +8,7 @@
     epiphany
     qutebrowser
     tor-browser-bundle-bin
+    microsoft-edge
   ];
   programs.firefox = {
     enable = true;

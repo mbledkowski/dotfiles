@@ -14,5 +14,6 @@
     # gnomeExtensions.power-profile-switcher
     gnomeExtensions.material-shell
     textpieces
+    gnome-firmware
   ];
 }
