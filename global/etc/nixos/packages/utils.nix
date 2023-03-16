@@ -92,5 +92,6 @@
     fd
     ripgrep
     radicle-cli
+    ethtool
   ];
 }
