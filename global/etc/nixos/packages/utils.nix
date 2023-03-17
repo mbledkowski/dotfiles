@@ -7,6 +7,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    file
     mpv
     woeusb-ng
     calc
@@ -93,5 +94,8 @@
     ripgrep
     radicle-cli
     ethtool
+    kbfs
+    keybase
+    keybase-gui
   ];
 }
