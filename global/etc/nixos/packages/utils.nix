@@ -97,5 +97,6 @@
     kbfs
     keybase
     keybase-gui
+    ffmpeg
   ];
 }
