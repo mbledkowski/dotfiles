@@ -98,5 +98,7 @@
     keybase
     keybase-gui
     ffmpeg
+    openrazer-daemon
+    razergenie
   ];
 }

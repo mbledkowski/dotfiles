@@ -124,6 +124,9 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # OpenRazer drivers
+  hardware.openrazer.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput = {
     enable = true;
