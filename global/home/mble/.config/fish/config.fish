@@ -7,4 +7,6 @@ any-nix-shell fish | source
 
 if test -f /etc/arch-release
   pyenv init - | source
+  test -d "$HOME/.tea" && "$HOME/.tea/tea.xyz/v*/bin/tea" --magic=fish --silent | source
 end
+
