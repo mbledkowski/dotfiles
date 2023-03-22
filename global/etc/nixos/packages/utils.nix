@@ -83,7 +83,8 @@
     yubioath-flutter
     minicom
     pwntools
-    busybox
+    # busybox
+    usbutils
     sysvinit
     mlocate
     cmatrix
@@ -100,5 +101,6 @@
     ffmpeg
     openrazer-daemon
     razergenie
+    fzf
   ];
 }

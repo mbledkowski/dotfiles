@@ -235,6 +235,7 @@
       "@daily mble pnpm add -g pnpm"
       "@daily root nix-channel --update && nixos-rebuild switch --upgrade && nix-collect-garbage -d"
       "@daily mble cd /home/mble/.dotfiles/ && git pull && git add . && git commit --no-gpg-sign -m 'Regular update' && git push"
+      "@daily mble firefox --new-tab https://stackoverflow.com/users/10492295"
     ];
   };
   
