@@ -102,5 +102,6 @@
     openrazer-daemon
     razergenie
     fzf
+    speechd
   ];
 }
