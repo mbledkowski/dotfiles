@@ -65,8 +65,8 @@
     jq
     tree
     virt-manager
-    linuxKernel.packages.linux_zen.vmware
-    vmware-workstation
+    # linuxKernel.packages.linux_zen.vmware
+    # vmware-workstation
     tightvnc
     # licensor
     distrobox
@@ -103,5 +103,6 @@
     razergenie
     fzf
     speechd
+    soft-serve
   ];
 }
