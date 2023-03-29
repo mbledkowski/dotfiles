@@ -58,7 +58,7 @@
     brightnessctl
     cron
     skanlite
-    gscan2pdf
+    # gscan2pdf
     # paperworkRedditgraphs
     scantailor
     appimage-run
