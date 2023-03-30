@@ -104,5 +104,6 @@
     fzf
     speechd
     soft-serve
+    wakeonlan
   ];
 }
