@@ -8,6 +8,7 @@
           python-dotenv
           semver
           flake8
+          ipykernel
         ];
         python-with-my-packages = python310.withPackages my-python-packages;
       in

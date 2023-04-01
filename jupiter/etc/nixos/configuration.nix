@@ -125,7 +125,10 @@
   services.blueman.enable = true;
 
   # OpenRazer drivers
-  hardware.openrazer.enable = true;
+  hardware.openrazer = {
+    enable = true;
+    users = [ "mble" ];
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput = {

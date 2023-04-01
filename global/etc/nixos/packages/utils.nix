@@ -105,5 +105,6 @@
     speechd
     soft-serve
     wakeonlan
+    monero-gui
   ];
 }
