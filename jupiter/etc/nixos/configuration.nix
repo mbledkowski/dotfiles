@@ -218,17 +218,17 @@
 
   # U2F configuration (YubiKey)
   # https://nixos.wiki/wiki/Yubikey
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
-  security.pam.yubico = {
-    enable = true;
-    debug = false;
-    mode = "challenge-response";
-  };
-  security.pam.yubico.control = "required";
-  services.pcscd.enable = true;
+  # security.pam.services = {
+  #   login.u2fAuth = true;
+  #   sudo.u2fAuth = true;
+  # };
+  # security.pam.yubico = {
+  #   enable = true;
+  #   debug = false;
+  #   mode = "challenge-response";
+  # };
+  # security.pam.yubico.control = "required";
+  # services.pcscd.enable = true;
 
   # Enable cron service
   services.cron = {
@@ -238,7 +238,6 @@
       "@daily mble pnpm add -g pnpm"
       "@daily root nix-channel --update && nixos-rebuild switch --upgrade && nix-collect-garbage -d"
       "@daily mble cd /home/mble/.dotfiles/ && git pull && git add . && git commit --no-gpg-sign -m 'Regular update' && git push"
-      "@daily mble firefox --new-tab https://stackoverflow.com/users/10492295"
     ];
   };
   

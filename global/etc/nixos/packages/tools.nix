@@ -15,5 +15,6 @@
     obs-studio
     imagej
     anytype
+    gimp-with-plugins
   ];
 }
