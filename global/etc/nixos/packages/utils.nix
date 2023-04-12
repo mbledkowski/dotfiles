@@ -106,5 +106,7 @@
     soft-serve
     wakeonlan
     monero-gui
+    nmap
+    metasploit
   ];
 }
