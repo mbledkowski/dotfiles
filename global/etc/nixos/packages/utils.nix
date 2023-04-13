@@ -93,7 +93,7 @@
     poppler_utils
     fd
     ripgrep
-    radicle-cli
+    # radicle-cli
     ethtool
     kbfs
     keybase
@@ -105,6 +105,7 @@
     speechd
     soft-serve
     wakeonlan
+    lolcat
     monero-gui
     nmap
     metasploit
