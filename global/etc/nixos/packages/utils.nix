@@ -109,5 +109,6 @@
     monero-gui
     nmap
     metasploit
+    youtube-dl
   ];
 }
