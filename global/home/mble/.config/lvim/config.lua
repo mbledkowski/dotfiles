@@ -224,6 +224,7 @@ lvim.plugins = {
     require("todo-comments").setup()
   end,
   },
+  { "christoomey/vim-tmux-navigator" },
   { "github/copilot.vim" },
   { "Igorjan94/codeforces.vim" },
   { 'nyoom-engineering/oxocarbon.nvim' },

@@ -104,9 +104,12 @@
   xdg.portal.wlr.enable = true;
 
   # Configure keymap in X11
-  services.xserver.layout = "pl,pl";
-  services.xserver.xkbVariant = "colemak,";
-  services.xserver.xkbOptions = "caps:backspace";
+  services.xserver = {
+    layout = "pl,us,pl";
+    xkbVariant = "colemak,colemak,";
+    xkbOptions = "caps:escape";
+    xkbDir = "/home/mble/.config/X11/xkb";
+  };
 
   # Printering
   # Enable CUPS to print documents.
@@ -125,13 +128,36 @@
   hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  services.pipewire.enable = true;
-
+  # sound.enable = true;
+  hardware.pulseaudio = {
+    enable = false;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+    package = pkgs.pulseaudioFull;
+  };
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
+  
   # Enable bluetooth.
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  environment.etc = {
+    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+      bluez_monitor.properties = {
+        ["bluez5.enable-sbc-xq"] = true,
+        ["bluez5.enable-msbc"] = true,
+        ["bluez5.enable-hw-volume"] = true,
+        ["bluez5.headset-roles"] = "[ hsp_hs hfp_hf hfp_ag ]",
+        ["bluez5.codecs"] = "[ sbc sbc_xq aac ldac ]"
+      }
+    '';
+  };
 
   # OpenRazer drivers
   hardware.openrazer = {
@@ -265,4 +291,3 @@
     };
   };
 }
-

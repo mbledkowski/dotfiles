@@ -74,7 +74,7 @@
     docker
     popcorntime
     barrier
-    moonlight-qt
+    # moonlight-qt
     pam_u2f
     pcsclite
     yubico-pam
@@ -112,5 +112,9 @@
     metasploit
     youtube-dl
     lazygit
+    service-wrapper
+    helvum
+    github-desktop
+    ldacbt
   ];
 }
