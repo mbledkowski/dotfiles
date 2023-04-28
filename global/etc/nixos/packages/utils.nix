@@ -116,5 +116,6 @@
     helvum
     github-desktop
     ldacbt
+    shell_gpt
   ];
 }
