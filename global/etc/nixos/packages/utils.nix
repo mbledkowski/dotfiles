@@ -116,6 +116,7 @@
     helvum
     github-desktop
     ldacbt
+    eyedropper
     shell_gpt
   ];
 }
