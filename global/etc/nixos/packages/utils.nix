@@ -118,5 +118,9 @@
     ldacbt
     eyedropper
     shell_gpt
+    freshfetch
+    hyfetch
+    pridefetch
+    ipfetch
   ];
 }
