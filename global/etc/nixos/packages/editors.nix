@@ -2,7 +2,8 @@
 {
   programs.neovim.defaultEditor = true;
   environment.systemPackages = with pkgs; [
-    (import (fetchTarball "channel:nixos-22.11") {}).neovim
+    neovim
+    neovide
     vscode
     sublime4
     jetbrains.webstorm
