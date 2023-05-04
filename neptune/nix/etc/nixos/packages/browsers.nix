@@ -1,1 +1,0 @@
-../../../../../global/etc/nixos/packages/browsers.nix

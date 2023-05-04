@@ -4,3 +4,6 @@
 [submodule "global/home/mble/.config/alacritty/themes"]
 	path = global/home/mble/.config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule "global/home/mble/.config/tmux/plugins/tpm"]
+	path = global/home/mble/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
