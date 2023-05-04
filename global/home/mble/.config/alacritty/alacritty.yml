@@ -17,6 +17,7 @@ font:
 
   size: 8.5
 shell:
-  program: /run/current-system/sw/bin/tmux
+  program: /home/mble/.config/alacritty/tmuxpath.sh
+
 import:
   - ~/.config/alacritty/themes/themes/hyper.yaml
