@@ -7,3 +7,6 @@
 [submodule "global/home/mble/.config/tmux/plugins/tpm"]
 	path = global/home/mble/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "global/home/mble/.config/alacritty/oxocarbon"]
+	path = global/home/mble/.config/alacritty/oxocarbon
+	url = git@github.com:nyoom-engineering/oxocarbon-alacritty.git

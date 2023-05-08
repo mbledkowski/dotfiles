@@ -265,6 +265,8 @@
   # security.pam.yubico.control = "required";
   # services.pcscd.enable = true;
 
+  # Tailscale
+  services.tailscale.enable = true;
   # Enable cron service
   services.cron = {
     enable = true;
@@ -275,7 +277,7 @@
       "@daily mble cd /home/mble/.dotfiles/ && git pull && git add . && git commit --no-gpg-sign -m 'Regular update' && git push"
     ];
   };
-  
+
   # System
   system = {
     # This value determines the NixOS release from which the default

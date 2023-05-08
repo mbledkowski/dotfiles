@@ -24,12 +24,22 @@
           #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
           device = "nodev";
           enableCryptodisk = true;
-        };    
+        };
     };
+    
+    kernel.sysctl = {
+  "kernel.unprivileged_userns_clone" = "1";
+  "net.ipv4.ip_forward" = "1";
+  "net.ipv6.conf.default.forwarding" = "1";
+  "net.ipv6.conf.all.forwarding" = "1";
+    };
+
 
     # Kernel
     kernelPackages = pkgs.linuxPackages_zen;
+    kernelModules = [ "usbnet" "cdc_ether" ];
   };
+  services.fwupd.enable = true;
 
   networking.hostName = "neptune"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -80,6 +90,8 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.gnome.tracker-miners.enable = false;
+  services.gnome.tracker.enable = false;
   # Enable the xmonad Window Manager
   #services.xserver.windowManager.xmonad = {
   #  enable = true;
@@ -105,9 +117,12 @@
   xdg.portal.wlr.enable = true;
 
   # Configure keymap in X11
-  services.xserver.layout = "pl,pl";
-  services.xserver.xkbVariant = "colemak,";
-  services.xserver.xkbOptions = "caps:backspace";
+  services.xserver = {
+    layout = "pl,us,pl";
+    xkbVariant = "colemak,colemak,";
+    xkbOptions = "caps:escape";
+    xkbDir = "/home/mble/.config/X11/xkb";
+  };
 
   # Printering
   # Enable CUPS to print documents.
@@ -126,14 +141,42 @@
   hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  services.pipewire.enable = true;
+  # sound.enable = true;
+  hardware.pulseaudio = {
+    enable = false;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+    package = pkgs.pulseaudioFull;
+  };
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
 
   # Enable bluetooth.
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  environment.etc = {
+    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+      bluez_monitor.properties = {
+        ["bluez5.enable-sbc-xq"] = true,
+        ["bluez5.enable-msbc"] = true,
+        ["bluez5.enable-hw-volume"] = true,
+        ["bluez5.headset-roles"] = "[ hsp_hs hfp_hf hfp_ag ]",
+        ["bluez5.codecs"] = "[ sbc sbc_xq aac ldac ]"
+      }
+    '';
+  };
+
+  # OpenRazer drivers
+  hardware.openrazer = {
+    enable = true;
+    users = [ "mble" ];
+  };
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput = {
     enable = true;
@@ -222,17 +265,20 @@
 
   # U2F configuration (YubiKey)
   # https://nixos.wiki/wiki/Yubikey
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-  };
-  security.pam.yubico = {
-    enable = true;
-    debug = false;
-    mode = "challenge-response";
-  };
-  security.pam.yubico.control = "required";
-  services.pcscd.enable = true;
+  # security.pam.services = {
+  #   login.u2fAuth = true;
+  #   sudo.u2fAuth = true;
+  # };
+  # security.pam.yubico = {
+  #   enable = true;
+  #   debug = false;
+  #   mode = "challenge-response";
+  # };
+  # security.pam.yubico.control = "required";
+  # services.pcscd.enable = true;
+
+  # Tailscale
+  services.tailscale.enable = true;
 
   # Enable cron service
   services.cron = {

@@ -122,5 +122,8 @@
     hyfetch
     pridefetch
     ipfetch
+    tailscale
+    diffuse
+    busybox
   ];
 }

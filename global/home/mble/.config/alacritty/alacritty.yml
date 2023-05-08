@@ -20,4 +20,4 @@ shell:
   program: /home/mble/.config/alacritty/tmuxpath.sh
 
 import:
-  - ~/.config/alacritty/themes/themes/hyper.yaml
+  - ~/.config/alacritty/oxocarbon/oxocarbon-dark.yml

@@ -1,0 +1,1 @@
+../../../../global/etc/nixos/packages/editors.nix
