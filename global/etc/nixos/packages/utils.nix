@@ -125,5 +125,6 @@
     tailscale
     diffuse
     busybox
+    android-tools
   ];
 }
