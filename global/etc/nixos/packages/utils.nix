@@ -81,7 +81,7 @@
     yubikey-manager
     yubikey-manager-qt
     yubikey-personalization
-    yubioath-flutter
+    # yubioath-flutter
     minicom
     pwntools
     # busybox
@@ -126,5 +126,6 @@
     diffuse
     busybox
     android-tools
+    tigervnc
   ];
 }
