@@ -12,6 +12,7 @@
     gnomeExtensions.pop-shell
     gnomeExtensions.gsconnect
     # gnomeExtensions.power-profile-switcher
+    gnomeExtensions.paperwm
     gnomeExtensions.material-shell
     textpieces
     gnome-firmware
