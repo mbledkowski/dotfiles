@@ -236,13 +236,20 @@
   # networking.firewall.enable = false;
 
   # Virtualisation
-  virtualisation.libvirtd.enable = true;
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    docker = {
+      enable = true;
+      storageDriver = "btrfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+    waydroid.enable = true;
+    lxd.enable = true;
   };
+
   programs.dconf.enable = true;
 
   nixpkgs.config.packageOverrides = pkgs: {
