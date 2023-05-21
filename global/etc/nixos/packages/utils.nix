@@ -5,6 +5,7 @@
     "tightvnc-1.3.10"
     "electron-12.2.3"
     "electron-21.4.0"
+    "openssl-1.1.1t"
   ];
 
   environment.systemPackages = with pkgs; [

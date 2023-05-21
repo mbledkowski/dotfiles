@@ -292,6 +292,12 @@ lvim.plugins = {
   },
   { "ThePrimeagen/vim-be-good" },
   { "nyoom-engineering/oxocarbon.nvim" },
+  { "nvim-orgmode/orgmode",
+    ft = {'org'},
+    config = function()
+            require('orgmode').setup{}
+    end,
+  },
   --     {"folke/tokyonight.nvim"},
   --     {
   --       "folke/trouble.nvim",
