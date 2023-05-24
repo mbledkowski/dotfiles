@@ -128,5 +128,8 @@
     busybox
     android-tools
     tigervnc
+    jupyter
+    xorg.xhost
+    cudatoolkit
   ];
 }

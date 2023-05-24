@@ -9,10 +9,17 @@
           semver
           flake8
           ipykernel
+          jupyterlab
+          # tensorflow
+          # keras
+          # wandb
+          widgetsnbextension
+          pip
         ];
         python-with-my-packages = python310.withPackages my-python-packages;
       in
       python-with-my-packages
     )
+    conda
   ];
 }
