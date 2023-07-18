@@ -56,7 +56,8 @@ sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && sudo nix-col
  - mercury - Raspberry Pi Zero W v1.1, 256 GB SD Card
  - phobos (moon of mars) - Radxa Zero, 128 GB SD Card
  - deimos (moon of mars) - Odroid C2 Rev0.2, 128 SD Card
- - venus - Samsung A40, 64GB internal memory
+ - old-venus - Samsung A40, 64GB internal memory
+ - venus - Apple iPhone SE 2020, 64GB
  - earth - Kindle Paperwhite 5, 8GB internal memory, no ads
  - mars - iPad Air 2019, 64GB internal memory
  - jupiter - Thinkpad X260, i5-6300U, 16GB DDR4
