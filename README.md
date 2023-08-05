@@ -58,6 +58,7 @@ sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && sudo nix-col
  - deimos (moon of mars) - Odroid C2 Rev0.2, 128 SD Card
  - old-venus - Samsung A40, 64GB internal memory
  - venus - Apple iPhone SE 2020, 64GB
+ - venus-watch - Apple Watch 6 GPS, 32GB
  - earth - Kindle Paperwhite 5, 8GB internal memory, no ads
  - mars - iPad Air 2019, 64GB internal memory
  - jupiter - Thinkpad X260, i5-6300U, 16GB DDR4
