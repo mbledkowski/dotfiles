@@ -214,29 +214,27 @@ linters.setup = {
   --     filetypes = { "javascript", "python" },
   --   },
 }
+
 -- Additional Plugins
 lvim.plugins = {
   {
-  "folke/todo-comments.nvim",
-  event = "BufRead",
-  config = function()
-    require("todo-comments").setup()
-  end,
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup()
+    end,
   },
   {
-  "zbirenbaum/copilot-cmp",
-  event = "InsertEnter",
-  dependencies = { "zbirenbaum/copilot.lua" },
-  config = function()
-    vim.defer_fn(function()
-      require("copilot").setup({
-        copilot_node_command = "/run/current-system/sw/bin/node",
-      }) -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
-      require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
-    end, 100)
-  end,
+    "tzachar/cmp-tabnine",
+    build = "./install.sh",
+    dependencies = "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
   },
-  { 
+  {
+    "github/copilot.vim",
+    event = "VeryLazy",
+  },
+  {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
   },
@@ -244,11 +242,11 @@ lvim.plugins = {
     "mbledkowski/neuleetcode.vim",
     event = "VeryLazy",
   },
-  { 
+  {
     "Igorjan94/codeforces.vim",
     event = "VeryLazy",
   },
-  { 
+  {
     "kylechui/nvim-surround",
     event = "VeryLazy",
   },
@@ -256,46 +254,47 @@ lvim.plugins = {
     "epwalsh/obsidian.nvim",
     event = { "BufReadPre " .. vim.fn.expand "~" .. "/Notes/**.md" },
     dependencies = {
-    -- Required.
-    "nvim-lua/plenary.nvim",
+      -- Required.
+      "nvim-lua/plenary.nvim",
 
-    -- Optional, for completion.
-    "hrsh7th/nvim-cmp",
+      -- Optional, for completion.
+      "hrsh7th/nvim-cmp",
 
-    -- Optional, for search and quick-switch functionality.
-    "nvim-telescope/telescope.nvim",
+      -- Optional, for search and quick-switch functionality.
+      "nvim-telescope/telescope.nvim",
 
-    -- Optional, an alternative to telescope for search and quick-switch functionality.
-    -- "ibhagwan/fzf-lua"
+      -- Optional, an alternative to telescope for search and quick-switch functionality.
+      -- "ibhagwan/fzf-lua"
 
-    -- Optional, another alternative to telescope for search and quick-switch functionality.
-    -- "junegunn/fzf",
-    -- "junegunn/fzf.vim"
+      -- Optional, another alternative to telescope for search and quick-switch functionality.
+      -- "junegunn/fzf",
+      -- "junegunn/fzf.vim"
 
-    -- Optional, alternative to nvim-treesitter for syntax highlighting.
-    "godlygeek/tabular",
-    "preservim/vim-markdown",
+      -- Optional, alternative to nvim-treesitter for syntax highlighting.
+      "godlygeek/tabular",
+      "preservim/vim-markdown",
     },
-  config = function(_, opts)
-    require("obsidian").setup(opts)
+    config = function(_, opts)
+      require("obsidian").setup(opts)
 
-    -- Optional, override the 'gf' keymap to utilize Obsidian's search functionality.
-    -- see also: 'follow_url_func' config option above.
-    vim.keymap.set("n", "gf", function()
-      if require("obsidian").util.cursor_on_markdown_link() then
-        return "<cmd>ObsidianFollowLink<CR>"
-      else
-        return "gf"
-      end
-    end, { noremap = false, expr = true })
-  end,
+      -- Optional, override the 'gf' keymap to utilize Obsidian's search functionality.
+      -- see also: 'follow_url_func' config option above.
+      vim.keymap.set("n", "gf", function()
+        if require("obsidian").util.cursor_on_markdown_link() then
+          return "<cmd>ObsidianFollowLink<CR>"
+        else
+          return "gf"
+        end
+      end, { noremap = false, expr = true })
+    end,
   },
   { "ThePrimeagen/vim-be-good" },
   { "nyoom-engineering/oxocarbon.nvim" },
-  { "nvim-orgmode/orgmode",
-    ft = {'org'},
+  {
+    "nvim-orgmode/orgmode",
+    ft = { 'org' },
     config = function()
-            require('orgmode').setup{}
+      require('orgmode').setup {}
     end,
   },
   --     {"folke/tokyonight.nvim"},

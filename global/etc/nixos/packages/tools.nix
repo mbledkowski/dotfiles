@@ -8,7 +8,6 @@
     obsidian
     gaphor
     khronos
-    textpieces
     icon-library
     onlyoffice-bin
     audacity
@@ -16,5 +15,8 @@
     imagej
     anytype
     gimp-with-plugins
+    radare2
+    gparted
+    zotero
   ];
 }

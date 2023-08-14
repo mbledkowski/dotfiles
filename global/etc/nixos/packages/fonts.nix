@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     corefonts
-    (import (fetchTarball "channel:nixos-22.11") {}).nerdfonts
+    (import (fetchTarball "channel:nixos-23.05") {}).nerdfonts
     noto-fonts
     jetbrains-mono
     fira-code

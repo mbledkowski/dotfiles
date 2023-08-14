@@ -6,6 +6,9 @@
     "electron-12.2.3"
     "electron-21.4.0"
     "openssl-1.1.1t"
+    "openssl-1.1.1u"
+    "openssl-1.1.1v"
+    "python-2.7.18.6"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -128,5 +131,25 @@
     busybox
     android-tools
     tigervnc
+    termius
+    ansible
+    dmg2img
+    qemu
+    darling
+    discord
+    linuxKernel.packages.linux_zen.v4l2loopback
+    moonlight-qt
+    cadence
+    icecast
+    ffmpeg_6-full
+    screenkey
+    texlive.combined.scheme-full
+    bibtool
+    bibclean
+    texlab
+    p7zip
+    rar
+    unrar
+    gnome-network-displays
   ];
 }

@@ -1,7 +1,7 @@
 # Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -20,10 +20,10 @@
     };
     
     kernel.sysctl = {
-  "kernel.unprivileged_userns_clone" = "1";
-  "net.ipv4.ip_forward" = "1";
-  "net.ipv6.conf.default.forwarding" = "1";
-  "net.ipv6.conf.all.forwarding" = "1";
+      "kernel.unprivileged_userns_clone" = "1";
+      "net.ipv4.ip_forward" = "1";
+      "net.ipv6.conf.default.forwarding" = "1";
+      "net.ipv6.conf.all.forwarding" = "1";
     };
 
     # Kernel
@@ -78,6 +78,12 @@
   services.gnome.tracker-miners.enable = false;
   services.gnome.tracker.enable = false;
 
+  environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
+    gst-plugins-good
+    gst-plugins-bad
+    gst-plugins-ugly
+    gst-libav
+  ]);
 
   # Enable the xmonad Window Manager
   #services.xserver.windowManager.xmonad = {
@@ -115,7 +121,16 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  services.avahi.enable = true;
+  services.avahi = {
+        enable = true;
+        nssmdns = true;
+        publish.addresses = true;
+        publish.domain = true;
+        publish.enable = true;
+        publish.userServices = true;
+        publish.workstation = true;
+        extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
+      };
   # for a WiFi printer
   services.avahi.openFirewall = true;
   # for an USB printer
@@ -216,7 +231,7 @@
     shell = pkgs.fish;
   };
 
-  environment.binsh = "${pkgs.dash}/bin/dash";
+  environment.binsh = lib.getExe pkgs.dash;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
