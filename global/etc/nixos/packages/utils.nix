@@ -1,5 +1,7 @@
 { pkgs, ... }:
-{
+let
+  iriun = (import ../pkgs/apps/iriun.nix);
+in {
 
   nixpkgs.config.permittedInsecurePackages = [
     "tightvnc-1.3.10"
@@ -151,5 +153,7 @@
     rar
     unrar
     gnome-network-displays
+    iriun
+    rpiplay
   ];
 }
