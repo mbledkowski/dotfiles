@@ -155,5 +155,8 @@ in {
     gnome-network-displays
     iriun
     rpiplay
+    lm_sensors
+    hardinfo
+    glances
   ];
 }

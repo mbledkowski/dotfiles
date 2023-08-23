@@ -14,6 +14,8 @@
     # gnomeExtensions.power-profile-switcher
     gnomeExtensions.paperwm
     gnomeExtensions.material-shell
+    gnomeExtensions.freon
+    gnomeExtensions.vitals
     # textpieces
     gnome-firmware
   ];

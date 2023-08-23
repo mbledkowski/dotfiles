@@ -89,6 +89,9 @@
   # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
   hardware.nvidia.modesetting.enable = true;
 
+  # Use systemd-based suspend to save and restore all of VRAM
+  hardware.nvidia.powerManagement.enable = true;
+
   # OpenGL support for 32 bit programs such as in Wine
   hardware.opengl.driSupport32Bit = true;
 
