@@ -158,5 +158,11 @@ in {
     lm_sensors
     hardinfo
     glances
+    radicle-cli
+    # radicle-upstream
+    stress
+    s-tui
+    iotop
+    gpu-burn
   ];
 }
