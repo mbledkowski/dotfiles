@@ -48,7 +48,7 @@ sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && sudo nix-col
  - Pointer speed: 6/11 (one below default)
  - Uncheck "Enhance pointer precision" (Mouse acceleration)
 ### Software
- - `winget install 9NZVDKPMR9RD` (Firefox)
+ - `winget install Mozilla.Firefox` (Firefox)
  - `winget install XP89DCGQ3K6VLD` (PowerToys)
 
 ## Machines
