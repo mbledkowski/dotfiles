@@ -150,9 +150,13 @@ in {
     bibclean
     texlab
     p7zip
-    rar
-    unrar
+    # rar
+    # unrar
     gnome-network-displays
+    realesrgan-ncnn-vulkan
+    broot
+    nyxt
+    nicotine-plus
     iriun
     rpiplay
     lm_sensors
