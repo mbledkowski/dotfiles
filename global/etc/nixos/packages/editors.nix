@@ -15,5 +15,6 @@
     jetbrains.gateway
     jetbrains.mps
     lyx
+    helix
   ];
 }

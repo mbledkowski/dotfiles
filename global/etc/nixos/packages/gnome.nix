@@ -16,6 +16,7 @@
     gnomeExtensions.material-shell
     gnomeExtensions.freon
     gnomeExtensions.vitals
+    gnomeExtensions.color-picker
     # textpieces
     gnome-firmware
   ];

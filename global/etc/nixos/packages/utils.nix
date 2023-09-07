@@ -164,5 +164,6 @@ in {
     s-tui
     iotop
     gpu-burn
+    imagemagick
   ];
 }
