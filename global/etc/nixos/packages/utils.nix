@@ -1,5 +1,7 @@
 { pkgs, ... }:
-{
+let
+  iriun = (import ../pkgs/apps/iriun.nix);
+in {
 
   nixpkgs.config.permittedInsecurePackages = [
     "tightvnc-1.3.10"
@@ -155,5 +157,16 @@
     broot
     nyxt
     nicotine-plus
+    iriun
+    rpiplay
+    lm_sensors
+    hardinfo
+    glances
+    radicle-cli
+    # radicle-upstream
+    stress
+    s-tui
+    iotop
+    gpu-burn
   ];
 }

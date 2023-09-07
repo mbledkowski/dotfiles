@@ -10,21 +10,25 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
+  # Make system time compatible with Windows installation\
+  time.hardwareClockInLocalTime = true;
+
   # Boot
   boot = {
     # Use the systemd-boot EFI boot loader.
     loader = {
-     # systemd-boot.enable = true;
+      systemd-boot.enable = true;
         efi = {
           canTouchEfiVariables = true;
-          efiSysMountPoint = "/boot/efi";
+          efiSysMountPoint = "/boot";
         };
-        grub = {
-          efiSupport = true;
-          #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-          device = "nodev";
-          enableCryptodisk = true;
-        };
+        #grub = {
+        #  efiSupport = true;
+        #  #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+        #  device = "nodev";
+	#  useOSProber = true;
+        #  enableCryptodisk = true;
+        #};
     };
     
     kernel.sysctl = {
@@ -37,7 +41,8 @@
 
     # Kernel
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelModules = [ "usbnet" "cdc_ether" ];
+    kernelModules = [ "usbnet" "cdc_ether" "v4l2loopback" ];
+    extraModulePackages = [ pkgs.linuxKernel.packages.linux_zen.v4l2loopback ];
   };
   services.fwupd.enable = true;
 
@@ -83,6 +88,9 @@
 
   # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
   hardware.nvidia.modesetting.enable = true;
+
+  # Use systemd-based suspend to save and restore all of VRAM
+  hardware.nvidia.powerManagement.enable = true;
 
   # OpenGL support for 32 bit programs such as in Wine
   hardware.opengl.driSupport32Bit = true;
@@ -297,7 +305,7 @@
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
     # on your system were taken. 
-    stateVersion = "23.05";
+    stateVersion = "23.11";
 
     # Automatic Upgrades
     autoUpgrade = {
