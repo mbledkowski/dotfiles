@@ -225,6 +225,9 @@ lvim.plugins = {
     end,
   },
   {
+    "HiPhish/rainbow-delimiters.nvim",
+  },
+  {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
     dependencies = "hrsh7th/nvim-cmp",
@@ -315,6 +318,28 @@ vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 -- vim.g.copilot_node_command = "/home/mble/.local/share/nvm/v16.15.1/bin/node"
 vim.api.nvim_set_keymap("i", "<A-t>", 'copilot#Accept("")', { expr = true, silent = true })
+
+local rainbow_delimiters = require 'rainbow-delimiters'
+
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterCyan',
+    },
+}
 
 -- Neovide settings
 vim.opt.guifont = { "JetBrains Mono", ":h6" }

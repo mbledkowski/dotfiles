@@ -13,6 +13,7 @@
 
   # Boot
   boot = {
+    tmp.useTmpfs = true;
     # Use the systemd-boot EFI boot loader.
     loader = {
       systemd-boot.enable = true;
@@ -33,6 +34,13 @@
   };
 
   services.fwupd.enable = true;
+
+  # IPFS node
+  services.kubo = {
+    enable = true;
+    settings.Addresses.API = ["/ip4/127.0.0.1/tcp/5001"];
+  };
+
 
   networking.hostName = "jupiter"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -263,7 +271,6 @@
         setSocketVariable = true;
       };
     };
-    waydroid.enable = true;
     lxd.enable = true;
   };
 
