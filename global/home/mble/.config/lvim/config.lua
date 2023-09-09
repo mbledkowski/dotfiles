@@ -227,16 +227,27 @@ lvim.plugins = {
   {
     "HiPhish/rainbow-delimiters.nvim",
   },
+  -- {
+  --   "tzachar/cmp-tabnine",
+  --   build = "./install.sh",
+  --   dependencies = "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter",
+  -- },
   {
-    "tzachar/cmp-tabnine",
-    build = "./install.sh",
-    dependencies = "hrsh7th/nvim-cmp",
+    "zbirenbaum/copilot-cmp",
     event = "InsertEnter",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+        require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+      end, 100)
+    end,
   },
-  {
-    "github/copilot.vim",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "github/copilot.vim",
+  --   event = "VeryLazy",
+  -- },
   {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
@@ -313,32 +324,32 @@ lvim.plugins = {
 vim.opt.background = "dark" -- set this to dark or light
 lvim.colorscheme = "oxocarbon"
 
--- GitHub Copilot settings
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
--- vim.g.copilot_node_command = "/home/mble/.local/share/nvm/v16.15.1/bin/node"
-vim.api.nvim_set_keymap("i", "<A-t>", 'copilot#Accept("")', { expr = true, silent = true })
+-- -- GitHub Copilot settings
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
+-- -- vim.g.copilot_node_command = "/home/mble/.local/share/nvm/v16.15.1/bin/node"
+-- vim.api.nvim_set_keymap("i", "<A-t>", 'copilot#Accept("")', { expr = true, silent = true })
 
 local rainbow_delimiters = require 'rainbow-delimiters'
 
 vim.g.rainbow_delimiters = {
-    strategy = {
-        [''] = rainbow_delimiters.strategy['global'],
-        vim = rainbow_delimiters.strategy['local'],
-    },
-    query = {
-        [''] = 'rainbow-delimiters',
-        lua = 'rainbow-blocks',
-    },
-    highlight = {
-        'RainbowDelimiterRed',
-        'RainbowDelimiterYellow',
-        'RainbowDelimiterBlue',
-        'RainbowDelimiterOrange',
-        'RainbowDelimiterGreen',
-        'RainbowDelimiterViolet',
-        'RainbowDelimiterCyan',
-    },
+  strategy = {
+    [''] = rainbow_delimiters.strategy['global'],
+    vim = rainbow_delimiters.strategy['local'],
+  },
+  query = {
+    [''] = 'rainbow-delimiters',
+    lua = 'rainbow-blocks',
+  },
+  highlight = {
+    'RainbowDelimiterRed',
+    'RainbowDelimiterYellow',
+    'RainbowDelimiterBlue',
+    'RainbowDelimiterOrange',
+    'RainbowDelimiterGreen',
+    'RainbowDelimiterViolet',
+    'RainbowDelimiterCyan',
+  },
 }
 
 -- Neovide settings
