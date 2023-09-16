@@ -16,6 +16,8 @@ font:
     style: Bold Italic
 
   size: 8.5
+selection:
+  save_to_clipboard: true
 shell:
   program: /home/mble/.config/alacritty/tmuxpath.sh
 
