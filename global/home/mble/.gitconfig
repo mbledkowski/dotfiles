@@ -13,3 +13,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[safe]
+	directory = /home/mble/go/pkg/mod/github.com/dgraph-io/ratel@v0.0.0-20230409031452-074df688a0ff

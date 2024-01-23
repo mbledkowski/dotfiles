@@ -92,6 +92,12 @@ dap.adapters.node2 = {
   args = { home .. '/.local/share/nvim/lspinstall/node_modules/vscode-node-debug2/out/src/nodeDebug.js' },
 }
 
+dap.adapters.python = {
+  type = "executable",
+  command = "python3",
+  args = { "-m", "debugpy.adapter" },
+}
+
 dap.configurations.javascript = {
   {
     name = 'Launch',
@@ -136,6 +142,30 @@ dap.configurations.typescript = {
     sourceMaps = true,
     port = 9229,
     skipFiles = { "<node_internals>/**", "node_modules/**" },
+  },
+}
+
+dap.configurations.python = {
+  {
+    type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
+    request = "launch",
+    name = "Launch file",
+
+    -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+    program = "${file}", -- This configuration will launch the current file if used.
+    pythonPath = function()
+      -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+      -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+      -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+      local cwd = vim.fn.getcwd()
+      if vim.fn.executable(cwd .. "/venv/bin/python3") == 1 then
+        return cwd .. "/venv/bin/python3"
+      elseif vim.fn.executable(cwd .. "/.venv/bin/python3") == 1 then
+        return cwd .. "/.venv/bin/python3"
+      else
+        return "/usr/bin/python3"
+      end
+    end,
   },
 }
 
@@ -217,6 +247,24 @@ linters.setup = {
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "aserowy/tmux.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("tmux").setup()
+    end
+  },
+  {
+    "dpayne/CodeGPT.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      require("codegpt.config")
+    end
+  },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
