@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export BUN_INSTALL:/home/mble/\x2ebun
+SETUVAR --export CYCLES_CUDA_EXTRA_CFLAGS:\x2dccbin\x20/usr/bin/gcc\x2d12\x2e2
 SETUVAR EDITOR:/home/mble/\x2elocal/bin/lvim
 SETUVAR --export PYENV_ROOT:/home/mble/\x2epyenv
 SETUVAR VISUAL:/home/mble/\x2elocal/bin/lvim
