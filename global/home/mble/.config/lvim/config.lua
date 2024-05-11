@@ -145,29 +145,31 @@ dap.configurations.typescript = {
   },
 }
 
-dap.configurations.python = {
-  {
-    type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
-    request = "launch",
-    name = "Launch file",
+-- dap.configurations.python = {
+--   {
+--     type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
+--     request = "launch",
+--     name = "Launch file",
+--     vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "sumneko_lua" })
 
-    -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-    program = "${file}", -- This configuration will launch the current file if used.
-    pythonPath = function()
-      -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-      -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-      -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
-      local cwd = vim.fn.getcwd()
-      if vim.fn.executable(cwd .. "/venv/bin/python3") == 1 then
-        return cwd .. "/venv/bin/python3"
-      elseif vim.fn.executable(cwd .. "/.venv/bin/python3") == 1 then
-        return cwd .. "/.venv/bin/python3"
-      else
-        return "/usr/bin/python3"
-      end
-    end,
-  },
-}
+
+--     -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+--     program = "${file}", -- This configuration will launch the current file if used.
+--     pythonPath = function()
+--       -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+--       -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+--       -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+--       local cwd = vim.fn.getcwd()
+--       if vim.fn.executable(cwd .. "/venv/bin/python3") == 1 then
+--         return cwd .. "/venv/bin/python3"
+--       elseif vim.fn.executable(cwd .. "/.venv/bin/python3") == 1 then
+--         return cwd .. "/.venv/bin/python3"
+--       else
+--         return "/usr/bin/python3"
+--       end
+--     end,
+--   },
+-- }
 
 -- generic LSP settings
 
@@ -210,40 +212,47 @@ dap.configurations.python = {
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
+-- Pythong LSP
+-- add `pyright` to `skipped_servers` list
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+
+local opts = {} -- check the lspconfig documentation for a list of all possible options
+require("lvim.lsp.manager").setup("ruff_lsp", opts)
+
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 vim.lsp.format = { timeout = 15000 }
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup = {
-  { command = "black", filetypes = { "python" } },
-  --   { command = "isort", filetypes = { "python" } },
-  -- {
-  --   --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-  --   command = "prettierd",
-  --   --     ---@usage arguments to pass to the formatter
-  --   --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-  --   --     extra_args = { "--print-with", "100" },
-  --   --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-  --   filetypes = { "typescript", "typescriptreact" },
-  -- },
-}
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup = {
+--   { command = "black", filetypes = { "python" } },
+--   { command = "isort", filetypes = { "python" } },
+-- {
+--   --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+--   command = "prettierd",
+--   --     ---@usage arguments to pass to the formatter
+--   --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+--   --     extra_args = { "--print-with", "100" },
+--   --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+--   filetypes = { "typescript", "typescriptreact" },
+-- },
+-- }
 
 -- -- set additional linters
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup = {
-  { command = "flake8", filetypes = { "python" } },
-  --   {
-  --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-  --     command = "shellcheck",
-  --     ---@usage arguments to pass to the formatter
-  --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-  --     extra_args = { "--severity", "warning" },
-  --   },
-  --   {
-  --     command = "codespell",
-  --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-  --     filetypes = { "javascript", "python" },
-  --   },
-}
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup = {
+--   { command = "flake8", filetypes = { "python" } },
+--   {
+--     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+--     command = "shellcheck",
+--     ---@usage arguments to pass to the formatter
+--     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+--     extra_args = { "--severity", "warning" },
+--   },
+--   {
+--     command = "codespell",
+--     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+--     filetypes = { "javascript", "python" },
+--   },
+-- }
 
 -- Additional Plugins
 lvim.plugins = {
