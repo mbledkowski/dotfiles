@@ -214,10 +214,10 @@ dap.configurations.typescript = {
 
 -- Pythong LSP
 -- add `pyright` to `skipped_servers` list
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 
-local opts = {} -- check the lspconfig documentation for a list of all possible options
-require("lvim.lsp.manager").setup("ruff_lsp", opts)
+-- local opts = {} -- check the lspconfig documentation for a list of all possible options
+-- require("lvim.lsp.manager").setup("pylsp", opts)
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 vim.lsp.format = { timeout = 15000 }
