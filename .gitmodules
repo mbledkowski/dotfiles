@@ -1,9 +1,6 @@
 [submodule "global/home/mble/.config/alacritty/themes"]
 	path = global/home/mble/.config/alacritty/themes
 	url = git@github.com:alacritty/alacritty-theme.git
-[submodule "global/home/mble/.config/tmux/plugins/tpm"]
-	path = global/home/mble/.config/tmux/plugins/tpm
-	url = git@github.com:tmux-plugins/tpm.git
 [submodule "global/home/mble/.config/alacritty/oxocarbon"]
 	path = global/home/mble/.config/alacritty/oxocarbon
 	url = git@github.com:nyoom-engineering/oxocarbon-alacritty.git
