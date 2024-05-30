@@ -3,4 +3,4 @@
 	url = git@github.com:alacritty/alacritty-theme.git
 [submodule "global/home/mble/.config/alacritty/oxocarbon"]
 	path = global/home/mble/.config/alacritty/oxocarbon
-	url = git@github.com:nyoom-engineering/oxocarbon-alacritty.git
+	url = git@github.com:ikoide/oxocarbon-alacritty.git
