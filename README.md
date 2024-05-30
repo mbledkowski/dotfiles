@@ -31,11 +31,12 @@ sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && sudo nix-col
  - Run "setup.exe"
 ### Removal of unnecessary features
  - Run PowerShell with admin privilages
- - Enable PowerShell execution `Set-ExecutionPolicy Unrestricted -Force`
- - Download: https://github.com/Sycnex/Windows10Debloater
- - Run "Windows10DebloaterGUI.ps1"
- - Follow this tutorial: https://beebom.com/how-debloat-windows-11-improve-performance/
- - You might also use this resource: https://pureinfotech.com/debloat-windows-11/
+ - Run ChrisTitusTech tool `irm https://christitus.com/win | iex`
+ - ~~Enable PowerShell execution `Set-ExecutionPolicy Unrestricted -Force`~~
+ - ~~Download: https://github.com/Sycnex/Windows10Debloater~~
+ - ~~Run "Windows10DebloaterGUI.ps1"~~
+ - ~~Follow this tutorial: https://beebom.com/how-debloat-windows-11-improve-performance/~~
+ - ~~You might also use this resource: https://pureinfotech.com/debloat-windows-11/~~
 ### Config
 #### Keyboard
  - Keyboard Properties
@@ -68,9 +69,10 @@ sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && sudo nix-col
  - neptune - Ryzen 9 5900X, 32GB DDR4, RTX 2070 8GB
 
 ### VPS'es
- - halley - 1 VCPU ARM, 6GB RAM, Oracle Cloud
- - halley2 - 2 VCPU ARM, 12GB RAM, Oracle Cloud
- - halley3 - 1 VCPU ARM, 6GB RAM, Oracle Cloud
+! To be updated (still using Oracle Cloud) !
+ - ~~halley - 1 VCPU ARM, 6GB RAM, Oracle Cloud~~
+ - ~~halley2 - 2 VCPU ARM, 12GB RAM, Oracle Cloud~~
+ - ~~halley3 - 1 VCPU ARM, 6GB RAM, Oracle Cloud~~
 
 ## License
 [WTFPL](https://spdx.org/licenses/WTFPL)
