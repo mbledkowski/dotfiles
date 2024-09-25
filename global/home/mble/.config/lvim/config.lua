@@ -263,17 +263,17 @@ lvim.plugins = {
       require("tmux").setup()
     end
   },
-  {
-    "dpayne/CodeGPT.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-    },
-    config = function()
-      require("codegpt.config")
-    end
-  },
+  -- {
+  --   "dpayne/CodeGPT.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --     'MunifTanjim/nui.nvim',
+  --   },
+  --   config = function()
+  --     require("codegpt.config")
+  --   end
+  -- },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
@@ -290,20 +290,85 @@ lvim.plugins = {
   --   dependencies = "hrsh7th/nvim-cmp",
   --   event = "InsertEnter",
   -- },
-  {
-    "zbirenbaum/copilot-cmp",
-    event = "InsertEnter",
-    dependencies = { "zbirenbaum/copilot.lua" },
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
-        require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
-      end, 100)
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   event = "InsertEnter",
+  --   dependencies = { "zbirenbaum/copilot.lua" },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+  --       require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+  --     end, 100)
+  --   end,
+  -- },
   -- {
   --   "github/copilot.vim",
   --   event = "VeryLazy",
+  -- },
+  -- {
+  --   'huggingface/llm.nvim',
+  --   event = "VeryLazy",
+  --   opts = {
+  --     backend = "ollama",
+  --     model = "codegemma:latest",
+  --     url = "http://localhost:11434/api/generate", -- llm-ls uses "/api/generate"
+  --     -- cf https://github.com/ollama/ollama/blob/main/docs/api.md#parameters
+  --     tokens_to_clear = { "<|file_separator|>" },
+  --     request_body = {
+  --       -- Modelfile options for the model you use
+  --       options = {
+  --         max_new_tokens = 128,
+  --         temperature = 0,
+  --         top_p = 0.9,
+  --       }
+  --     },
+  --     fim = {
+  --       enabled = true,
+  --       prefix = "<|fim_prefix|>",
+  --       middle = "<|fim_middle|>",
+  --       suffix = "<|fim_suffix|>",
+  --     },
+  --     accept_keymap = "<Tab>",
+  --     dismiss_keymap = "<S-Tab>",
+  --     lsp = {
+  --       bin_path = vim.api.nvim_call_function("stdpath", { "data" }) .. "/mason/bin/llm-ls",
+  --       host = "localhost",
+  --       port = "11434",
+  --       version = "0.5.2",
+  --     },
+  --     tokenizer = nil,       -- cf Tokenizer paragraph
+  --     context_window = 8192, -- max number of tokens for the context window
+  --     enable_suggestions_on_startup = true,
+  --     enable_suggestions_on_files = "*",
+  --   }
+  -- },
+  -- {
+  --   'huggingface/llm.nvim',
+  --   opts = {
+  --     backend = "ollama",
+  --     model = "codegemma:2b",
+  --     fim = {
+  --       enabled = true,
+  --       prefix = "<|fim_prefix|>",
+  --       middle = "<|fim_middle|>",
+  --       suffix = "<|fim_suffix|>",
+  --     },
+  --     context_window = 128,
+  --     url = "http://localhost:11434",
+  --     debounce_ms = 150,
+  --     accept_keymap = "<C-y>",
+  --     dismiss_keymap = "<C-n>",
+  --     request_body = {
+  --       options = {
+  --         num_predict = 128,
+  --         temperature = 0,
+  --         top_p = 0.9,
+
+  --       }
+  --     },
+  --     tokensToClear = { "<|file_separator|>" },
+  --
+  --   }
   -- },
   {
     "christoomey/vim-tmux-navigator",
@@ -368,30 +433,37 @@ lvim.plugins = {
       require('orgmode').setup {}
     end,
   },
+  {
+    "supermaven-inc/supermaven-nvim",
+    event = "VeryLazy",
+    config = function()
+      require("supermaven-nvim").setup({})
+    end,
+  },
   --     {"folke/tokyonight.nvim"},
   --     {
   --       "folke/trouble.nvim",
   --       cmd = "TroubleToggle",
   --     },
-  {
-    "David-Kunz/gen.nvim",
-    opts = {
-      model = "phind-codellama", -- The default model to use.
-      display_mode = "float",    -- The display mode. Can be "float" or "split".
-      show_prompt = false,       -- Shows the Prompt submitted to Ollama.
-      show_model = false,        -- Displays which model you are using at the beginning of your chat session.
-      no_auto_close = false,     -- Never closes the window automatically.
-      init = function(options) pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
-      -- Function to initialize Ollama
-      command = "curl --silent --no-buffer -X POST http://localhost:11434/api/generate -d $body",
-      -- The command for the Ollama service. You can use placeholders $prompt, $model and $body (shellescaped).
-      -- This can also be a lua function returning a command string, with options as the input parameter.
-      -- The executed command must return a JSON object with { response, context }
-      -- (context property is optional).
-      -- list_models = '<omitted lua function>',   -- Retrieves a list of model names
-      debug = false -- Prints errors and the command which is run.
-    }
-  },
+  -- {
+  --   "David-Kunz/gen.nvim",
+  --   opts = {
+  --     model = "codegemma",    -- The default model to use.
+  --     display_mode = "float", -- The display mode. Can be "float" or "split".
+  --     show_prompt = false,    -- Shows the Prompt submitted to Ollama.
+  --     show_model = false,     -- Displays which model you are using at the beginning of your chat session.
+  --     no_auto_close = false,  -- Never closes the window automatically.
+  --     init = function(options) pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
+  --     -- Function to initialize Ollama
+  --     command = "curl --silent --no-buffer -X POST http://localhost:11434/api/generate -d $body",
+  --     -- The command for the Ollama service. You can use placeholders $prompt, $model and $body (shellescaped).
+  --     -- This can also be a lua function returning a command string, with options as the input parameter.
+  --     -- The executed command must return a JSON object with { response, context }
+  --     -- (context property is optional).
+  --     -- list_models = '<omitted lua function>',   -- Retrieves a list of model names
+  --     debug = false -- Prints errors and the command which is run.
+  --   }
+  -- },
 }
 
 -- Change theme settings
