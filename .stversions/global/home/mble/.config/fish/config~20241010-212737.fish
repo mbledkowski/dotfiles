@@ -27,7 +27,3 @@ export PATH=/home/mble/.nimble/bin:/home/mble/.bun/bin:/home/mble/.pyenv/shims:/
 
 # Starship
 starship init fish | source
-
-# >>> coursier install directory >>>
-set -gx PATH "$PATH:/home/mble/.local/share/coursier/bin"
-# <<< coursier install directory <<<
