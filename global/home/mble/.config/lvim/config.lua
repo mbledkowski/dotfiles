@@ -192,9 +192,9 @@ dap.configurations.typescript = {
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
-local opts = {} -- check the lspconfig documentation for a list of all possible options
-require("lvim.lsp.manager").setup("pyright", opts)
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+-- local opts = {} -- check the lspconfig documentation for a list of all possible options
+-- require("lvim.lsp.manager").setup("pyright", opts)
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
@@ -214,10 +214,10 @@ require("lvim.lsp.manager").setup("pyright", opts)
 
 -- Pythong LSP
 -- add `pyright` to `skipped_servers` list
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 
--- local opts = {} -- check the lspconfig documentation for a list of all possible options
--- require("lvim.lsp.manager").setup("pylsp", opts)
+local opts = {} -- check the lspconfig documentation for a list of all possible options
+require("lvim.lsp.manager").setup("pylsp", opts)
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 vim.lsp.format = { timeout = 15000 }
@@ -284,31 +284,31 @@ lvim.plugins = {
   {
     "HiPhish/rainbow-delimiters.nvim",
   },
-{
-  "scalameta/nvim-metals",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
-  ft = { "scala", "sbt", "java" },
-  opts = function()
-    local metals_config = require("metals").bare_config()
-    metals_config.on_attach = function(client, bufnr)
-      -- your on_attach function
-    end
+  -- {
+  --   "scalameta/nvim-metals",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   ft = { "scala", "sbt", "java" },
+  --   opts = function()
+  --     local metals_config = require("metals").bare_config()
+  --     metals_config.on_attach = function(client, bufnr)
+  --       -- your on_attach function
+  --     end
 
-    return metals_config
-  end,
-  config = function(self, metals_config)
-    local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = self.ft,
-      callback = function()
-        require("metals").initialize_or_attach(metals_config)
-      end,
-      group = nvim_metals_group,
-    })
-  end
-},
+  --     return metals_config
+  --   end,
+  --   config = function(self, metals_config)
+  --     local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+  --     vim.api.nvim_create_autocmd("FileType", {
+  --       pattern = self.ft,
+  --       callback = function()
+  --         require("metals").initialize_or_attach(metals_config)
+  --       end,
+  --       group = nvim_metals_group,
+  --     })
+  --   end
+  -- },
   -- {
   --   "tzachar/cmp-tabnine",
   --   build = "./install.sh",
