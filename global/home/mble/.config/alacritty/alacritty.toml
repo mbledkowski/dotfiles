@@ -1,4 +1,3 @@
-import = ["/home/mble/.config/alacritty/oxocarbon/oxocarbon-dark.toml"]
 
 [font]
 size = 9
@@ -22,5 +21,10 @@ style = "Regular"
 [selection]
 save_to_clipboard = true
 
-[shell]
+[general]
+import = ["/home/mble/.config/alacritty/oxocarbon/oxocarbon-dark.toml"]
+
+[terminal]
+
+[terminal.shell]
 program = "/home/mble/.config/alacritty/tmuxpath.sh"
