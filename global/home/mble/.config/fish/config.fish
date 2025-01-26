@@ -31,3 +31,6 @@ starship init fish | source
 # >>> coursier install directory >>>
 set -gx PATH "$PATH:/home/mble/.local/share/coursier/bin"
 # <<< coursier install directory <<<
+
+# Add go binaries
+set -gx PATH "$PATH:/home/mble/go/bin"
