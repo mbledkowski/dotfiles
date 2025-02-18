@@ -18,3 +18,5 @@
 	directory = /home/mble/go/pkg/mod/github.com/dgraph-io/ratel@v0.0.0-20230409031452-074df688a0ff
 [color]
 	ui = auto
+[push]
+	followTags = true
