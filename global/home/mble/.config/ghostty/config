@@ -1,0 +1,22 @@
+font-family = JetBrainsMono Nerd Font
+font-size = 9
+theme = Oxocarbon
+window-theme = ghostty
+adw-toolbar-style = flat
+cursor-style = block
+adjust-cell-width = 0
+adjust-cell-height = 0
+
+term = xterm-kitty
+
+initial-command = tmux
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 1
+
+window-padding-balance = true 
+window-save-state = always
+window-colorspace = "display-p3"
+
+# other
+copy-on-select = clipboard
