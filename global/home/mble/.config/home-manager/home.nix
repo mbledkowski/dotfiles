@@ -15,11 +15,26 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  # Define your Nixpkgs overlays for Home Manager.
+  # nixpkgs.overlays = [
+  #   (import (builtins.fetchTarball "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz"))
+  # ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = [  
     pkgs.pnpm
     pkgs.bun
+    pkgs.nerd-fonts.jetbrains-mono
+    # For Doom Emacs
+    # pkgs.emacs-git
+    pkgs.git
+    pkgs.emacs    # Emacs 27.2
+    pkgs.ripgrep
+    pkgs.coreutils # basic GNU utilities
+    pkgs.fd
+    pkgs.clang
+
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -28,7 +43,6 @@
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -85,7 +99,7 @@
 
     fish = {
       enable = true; # see note on other shells below
-      interactiveShellInit = "fish_add_path $HOME/.bun/bin";
+      interactiveShellInit = "fish_add_path $HOME/.bun/bin $HOME/.config/emacs/bin";
     };
   };
 }
