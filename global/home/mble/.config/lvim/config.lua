@@ -538,7 +538,7 @@ vim.g.rainbow_delimiters = {
 }
 
 -- Neovide settings
-vim.opt.guifont = { "JetBrains Mono", ":h6" }
+-- vim.opt.guifont = { "JetBrains Mono", ":h6" }
 
 -- Editor settings
 vim.opt.tabstop = 2
