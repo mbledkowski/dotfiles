@@ -1,5 +1,5 @@
 --[[
-lvim is the global options object
+vim is the global options object
 
 Linters should be
 filled in as strings with either
@@ -281,9 +281,14 @@ lvim.plugins = {
       require("todo-comments").setup()
     end,
   },
-  {
-    "HiPhish/rainbow-delimiters.nvim",
-  },
+  --  {
+  --      'HiPhish/rainbow-delimiters.nvim',
+  --      version = "v0.9.0",
+  --      lazy = false,
+  --      config = function()
+  --          require "configs.highlight"
+  --      end,
+  --  },
   {
     "scalameta/nvim-metals",
     dependencies = {

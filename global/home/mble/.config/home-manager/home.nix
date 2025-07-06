@@ -31,9 +31,9 @@
     pkgs.git
     pkgs.emacs    # Emacs 27.2
     pkgs.ripgrep
-    pkgs.coreutils # basic GNU utilities
+    # pkgs.coreutils # basic GNU utilities
     pkgs.fd
-    pkgs.clang
+    # pkgs.clang
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
