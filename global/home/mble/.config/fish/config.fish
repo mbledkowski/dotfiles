@@ -13,13 +13,6 @@ else
   any-nix-shell fish | source
 end
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /home/mble/anaconda3/bin/conda
-    eval /home/mble/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-end
-# <<< conda initialize <<<
-
 # bun
 set --export BUN_INSTALL "/home/mble/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
