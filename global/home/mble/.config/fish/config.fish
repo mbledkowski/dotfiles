@@ -27,3 +27,17 @@ set -gx PATH "$PATH:/home/mble/.local/share/coursier/bin"
 
 # Add go binaries
 set -gx PATH "$PATH:/home/mble/go/bin"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/mble/anaconda3/bin/conda
+    eval /home/mble/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/home/mble/anaconda3/etc/fish/conf.d/conda.fish"
+        . "/home/mble/anaconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/home/mble/anaconda3/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+
