@@ -4,15 +4,16 @@ SETUVAR --export BUN_INSTALL:/home/mble/\x2ebun
 SETUVAR --export CUDA_HOME:/usr/local/cuda\x2d12/
 SETUVAR --export CYCLES_CUDA_EXTRA_CFLAGS:\x2dccbin\x20/usr/bin/gcc\x2d12\x2e2
 SETUVAR EDITOR:/home/mble/\x2elocal/bin/lvim
+SETUVAR FISH_AI_PYTHON_VERSION:3\x2e13
 SETUVAR --export --path LD_LIBRARY_PATH:\x1d
 SETUVAR --export PYENV_ROOT:/home/mble/\x2epyenv
 SETUVAR VISUAL:/home/mble/\x2elocal/bin/lvim
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1etom\x2ddoerr/codex\x2efish\x1eryoppippi/fish\x2dpoetry\x1erealiserad/fish\x2dai\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e1\x2e0\x1ercny/gh\x2dcopilot\x2dcli\x2dalias\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1etom\x2ddoerr/codex\x2efish\x1eryoppippi/fish\x2dpoetry\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e1\x2e0\x1ercny/gh\x2dcopilot\x2dcli\x2dalias\x2efish\x1erealiserad/fish\x2dai
 SETUVAR _fisher_rcny_2F_gh_2D_copilot_2D_cli_2D_alias_2E_fish_files:\x7e/\x2econfig/fish/conf\x2ed/gh\x2dcopilot\x2dcli\x2dalias\x2efish
-SETUVAR _fisher_realiserad_2F_fish_2D_ai_files:\x7e/\x2econfig/fish/functions/_fish_ai_autocomplete\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_autocomplete_or_fix\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_codify\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_codify_or_explain\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_explain\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_fix\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_ai_bug_report\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_ai_switch_context\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fish_ai\x2efish
+SETUVAR _fisher_realiserad_2F_fish_2D_ai_files:\x7e/\x2econfig/fish/functions/_fish_ai_autocomplete\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_autocomplete_or_fix\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_codify\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_codify_or_explain\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_explain\x2efish\x1e\x7e/\x2econfig/fish/functions/_fish_ai_fix\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_ai_bug_report\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_ai_put_api_key\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_ai_switch_context\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fish_ai\x2efish
 SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v2_2E_31_2E_30__files:\x7e/\x2econfig/fish/functions/sdk\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e\x7e/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR _fisher_ryoppippi_2F_fish_2D_poetry_files:\x7e/\x2econfig/fish/conf\x2ed/fish\x2dpoetry\x2efish
 SETUVAR _fisher_tom_2D_doerr_2F_codex_2E_fish_files:\x7e/\x2econfig/fish/functions/create_completion\x2efish\x1e\x7e/\x2econfig/fish/functions/create_completion\x2epy\x1e\x7e/\x2econfig/fish/conf\x2ed/create_completion\x2efish
@@ -48,5 +49,3 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/home/mble/go/bin\x1e/home/mble/\x2epyenv/shims\x1e/home/mble/\x2econfig/emacs/bin\x1e/home/mble/\x2elocal/depot_tools\x1e/home/mble/bin\x1e/home/mble/\x2ecargo/bin\x1e/home/mble/anaconda3/condabin\x1e/home/mble/\x2epyenv/bin\x1e/home/mble/\x2elocal/bin\x1e/home/mble/\x2eyarn/bin\x1e/home/mble/\x2etea/tea\x2exyz/v0\x2e39\x2e6/bin\x1e/var/home/mble/\x2elocal/bin
-SETUVAR nvm_data:/home/mble/\x2elocal/share/nvm
-SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist
