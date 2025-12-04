@@ -9,7 +9,7 @@ adjust-cell-height = 0
 
 term = xterm-kitty
 
-command = ./ghostty-tmux.sh
+command = /home/mble/.config/ghostty/ghostty-tmux.sh
 
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 1
