@@ -46,3 +46,4 @@ end
 
 # opencode
 fish_add_path /home/mble/.opencode/bin
+
